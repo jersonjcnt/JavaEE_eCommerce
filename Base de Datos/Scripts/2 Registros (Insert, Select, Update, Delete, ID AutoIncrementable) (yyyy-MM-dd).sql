@@ -5,6 +5,8 @@ insert into categoria values(4,'PUMA',1,1);
 insert into categoria values(5,'HOMBRE',1,5);
 insert into categoria values(6,'SACOS',1,5);
 insert into categoria values(7,'PANTALONES',1,5);
+insert into categoria values(8,'NIÑOS',1,8);
+insert into categoria values(9,'MUJERES',1,9);
 
 /*Es mejor especificar el ID y no depender de la propiedad AutoIncrementable*/
 /*Si se especifica el ID, la propiedad AutoIncrementable no se ejecuta, esto conlleva a crear tu propio Procedimiento Almacenado para generar los ID*/

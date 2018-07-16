@@ -232,14 +232,14 @@
                                                                 <div class="panel panel-default">
                                                                         <div class="panel-heading">
                                                                                 <h4 class="panel-title">
-                                                                                        <a data-toggle="collapse" data-parent="#accordian" href="#<%= idCategoriaSuperior %>">
+                                                                                        <a data-toggle="collapse" data-parent="#accordian" href="#<%= idCategoriaSuperior %>"> <%-- Al presionar los enlaces de Categoria Superior hace referencia href="#<%= idCategoriaSuperior %>" a la etiqueta que tiene id="<%= idCategoriaSuperior %>" --%>
                                                                                                 <span class="badge pull-right"><i class="fa fa-plus"></i></span>
                                                                                                 <%= objCat.obtenerCategoriaSuperior(i).getNom() %>
                                                                                                 <%-- Ropa deportiva --%>
                                                                                         </a>
                                                                                 </h4>
                                                                         </div>
-                                                                        <div id="<%= idCategoriaSuperior %>" class="panel-collapse collapse">
+                                                                        <div id="<%= idCategoriaSuperior %>" class="panel-collapse collapse"> <%--  --%>
                                                                                 <div class="panel-body">
                                                                                         <ul>
                                                                                                 <%! int idSubCategoria = 0; %>
@@ -248,7 +248,7 @@
                                                                                                     for (int i2 = 0; i2 < objCat.tamañoSubCategoria(); i2++) {
                                                                                                     idSubCategoria = objCat.obtenerSubCategoria(i2).getIdcat();
                                                                                                 %>
-                                                                                                        <li><a href="#<%= idSubCategoria %>"><%= objCat.obtenerSubCategoria(i2).getNom() %> </a></li>
+                                                                                                        <li><a href="#<%= idSubCategoria %>"><%= objCat.obtenerSubCategoria(i2).getNom() %> </a></li> <%-- Al presiona los enlaces de Sub Categoria aparecerá en la url #idSubCategoria
                                                                                                         <%-- <li><a href="#">Nike </a></li> --%>
                                                                                                         <%-- <li><a href="#">Under Armour </a></li> --%>
                                                                                                         <%-- <li><a href="#">Adidas </a></li> --%>
