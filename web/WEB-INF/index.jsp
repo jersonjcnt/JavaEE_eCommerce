@@ -35,7 +35,6 @@
 
 <body>
         <%! daoCategoria objCat = new daoCategoria(); %>
-        <% objCat.cargarListCategoriaSuperior(); %>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -224,30 +223,43 @@
 					<div class="left-sidebar">
 						<h2>Categorías</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-products-->
-                                                    <% for (int i = 0; i < objCat.tamaño(); i++) { %>
-                                                        <div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#<%= objCat.obtener(i).getIdcat()%>">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                                                                        <%= objCat.obtener(i).getNom() %>
-                                                                                        <%-- Ropa deportiva --%>
-										</a>
-									</h4>
-								</div>
-								<div id="<%= objCat.obtener(i).getIdcat() %>" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Nike </a></li>
-											<li><a href="#">Under Armour </a></li>
-											<li><a href="#">Adidas </a></li>
-											<li><a href="#">Puma</a></li>
-											<li><a href="#">ASICS </a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-                                                    <% } %>
+                                                        <%! int idCategoriaSuperior = 0; %>                                                       
+                                                        <% 
+                                                            objCat.cargarListCategoriaSuperior();
+                                                            for (int i = 0; i < objCat.tamañoCategoriaSuperior(); i++) { 
+                                                            idCategoriaSuperior = objCat.obtenerCategoriaSuperior(i).getIdcat();
+                                                        %>
+                                                                <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                                <h4 class="panel-title">
+                                                                                        <a data-toggle="collapse" data-parent="#accordian" href="#<%= idCategoriaSuperior %>">
+                                                                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                                                                                <%= objCat.obtenerCategoriaSuperior(i).getNom() %>
+                                                                                                <%-- Ropa deportiva --%>
+                                                                                        </a>
+                                                                                </h4>
+                                                                        </div>
+                                                                        <div id="<%= idCategoriaSuperior %>" class="panel-collapse collapse">
+                                                                                <div class="panel-body">
+                                                                                        <ul>
+                                                                                                <%! int idSubCategoria = 0; %>
+                                                                                                <% 
+                                                                                                    objCat.cargarListSubCategoria(idCategoriaSuperior); 
+                                                                                                    for (int i2 = 0; i2 < objCat.tamañoSubCategoria(); i2++) {
+                                                                                                    idSubCategoria = objCat.obtenerSubCategoria(i2).getIdcat();
+                                                                                                %>
+                                                                                                        <li><a href="#<%= idSubCategoria %>"><%= objCat.obtenerSubCategoria(i2).getNom() %> </a></li>
+                                                                                                        <%-- <li><a href="#">Nike </a></li> --%>
+                                                                                                        <%-- <li><a href="#">Under Armour </a></li> --%>
+                                                                                                        <%-- <li><a href="#">Adidas </a></li> --%>
+                                                                                                        <%-- <li><a href="#">Puma</a></li> --%>
+                                                                                                        <%-- <li><a href="#">ASICS </a></li> --%>
+                                                                                                <%  } %>
+                                                                                        </ul>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        <%  } %>
 						</div><!--/category-products-->
 					
 						<div class="brands_products"><!--brands_products-->

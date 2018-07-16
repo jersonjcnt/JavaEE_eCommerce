@@ -12,10 +12,11 @@ import java.sql.SQLException;
 public class daoCategoria {
 
     private Connection connection = new clsConexion().getConnection();    
-    private List<categoria> cat;
+    private List<categoria> catSup;
+    private List<categoria> SubCat;
     
     public List<categoria> cargarListCategoriaSuperior() {
-        cat = new ArrayList<categoria>();
+        catSup = new ArrayList<categoria>();
         try {
             CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTCATEGORIASUPERIOR}");
             ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(1);
@@ -26,22 +27,53 @@ public class daoCategoria {
                 objCat.setNom(rs.getString("NOM_CAT"));
                 objCat.setEst(rs.getInt("EST_CAT"));
                 objCat.setCatsup(rs.getInt("CATSUP_CAT"));
-                cat.add(objCat); //Los datos se almacenan en el List
+                catSup.add(objCat); //Los datos se almacenan en el List
             }
-            return cat; //Retorna el List
+            return catSup; //Retorna el List
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("Error en Cargar");
         }
         return null;
-    }  
+    }
     
-    public categoria obtener(int i) {
-        return cat.get(i);           
+    public List<categoria> cargarListSubCategoria(int catsup) {
+        SubCat = new ArrayList<categoria>();
+        try {
+            CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTSUBCATEGORIA(?)}");
+            st.setInt(1,catsup);
+            ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(1);
+            
+            while (rs.next()) {
+                categoria objCat = new categoria(); //Se crea el objeto de la clase empleado
+                objCat.setIdcat(rs.getInt("IDCAT"));
+                objCat.setNom(rs.getString("NOM_CAT"));
+                objCat.setEst(rs.getInt("EST_CAT"));
+                objCat.setCatsup(rs.getInt("CATSUP_CAT"));
+                SubCat.add(objCat); //Los datos se almacenan en el List
+            }
+            return SubCat; //Retorna el List
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("Error en Cargar");
+        }
+        return null;
+    }
+    
+    public categoria obtenerCategoriaSuperior(int i) {
+        return catSup.get(i);           
     }    
             
-    public int tamaño() { 
-        return cat.size();
+    public int tamañoCategoriaSuperior() { 
+        return catSup.size();
+    }
+    
+    public categoria obtenerSubCategoria(int i) {
+        return SubCat.get(i);           
+    }    
+            
+    public int tamañoSubCategoria() { 
+        return SubCat.size();
     }
     
 }
