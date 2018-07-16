@@ -17,7 +17,7 @@ public class clsConexion {
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver"); //Driver de MySQL
-            String myDB = "jdbc:mysql://localhost:3306/target"; //Url de MySQL
+            String myDB = "jdbc:mysql://localhost:3306/javaee_ecommerce"; //Url de MySQL
             String user = "root";
             String password = "";
             

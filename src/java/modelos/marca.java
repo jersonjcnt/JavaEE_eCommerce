@@ -5,12 +5,12 @@ public class marca implements Serializable {
     
     private int idmar;
     private String nom;    
-    private boolean est;
+    private int est;
 
     public marca() {        
     }
-    
-    public marca(int idmar, String nom, boolean est) {
+
+    public marca(int idmar, String nom, int est) {
         this.idmar = idmar;
         this.nom = nom;
         this.est = est;
@@ -32,12 +32,12 @@ public class marca implements Serializable {
         this.nom = nom;
     }
 
-    public boolean isEst() {
+    public int getEst() {
         return est;
     }
 
-    public void setEst(boolean est) {
+    public void setEst(int est) {
         this.est = est;
-    }        
-        
+    }
+    
 }

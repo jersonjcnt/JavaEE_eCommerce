@@ -1,6 +1,7 @@
 
-package conexion;
+package dao;
 //import conexion.clsConexion;
+import conexion.clsConexion;
 import modelos.categoria;
 import java.util.List;
 import java.util.ArrayList;
@@ -10,10 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 public class daoCategoria {
 
-    private Connection connection = new clsConexion().getConnection();
+    private Connection connection = new clsConexion().getConnection();    
     private List<categoria> cat;
     
-    public List<categoria> cargarListEmpleado() {
+    public List<categoria> cargarListCategoriaSuperior() {
         cat = new ArrayList<categoria>();
         try {
             CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTCATEGORIASUPERIOR}");
@@ -23,7 +24,7 @@ public class daoCategoria {
                 categoria objCat = new categoria(); //Se crea el objeto de la clase empleado
                 objCat.setIdcat(rs.getInt("IDCAT"));
                 objCat.setNom(rs.getString("NOM_CAT"));
-                objCat.setEst(rs.getBoolean("EST_CAT"));
+                objCat.setEst(rs.getInt("EST_CAT"));
                 objCat.setCatsup(rs.getInt("CATSUP_CAT"));
                 cat.add(objCat); //Los datos se almacenan en el List
             }
@@ -33,6 +34,14 @@ public class daoCategoria {
             System.out.println("Error en Cargar");
         }
         return null;
+    }  
+    
+    public categoria obtener(int i) {
+        return cat.get(i);           
+    }    
+            
+    public int tamaño() { 
+        return cat.size();
     }
     
 }

@@ -17,8 +17,8 @@
             30
         </session-timeout>
     </session-config>
-    <error-page>        
-        <location>/404.html</location>
+    <!-- <error-page> -->
+        <!-- <location>/404.html</location> -->
         <!-- Error 404 personalizado -->
-    </error-page>
+    <!-- </error-page> -->
 </web-app>

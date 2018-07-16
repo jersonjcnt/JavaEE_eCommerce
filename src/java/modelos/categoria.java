@@ -1,17 +1,17 @@
 
 package modelos;
 import java.io.Serializable;
-public class categoria implements Serializable { // Para que una clase sea un JavaBean debe implementar la interfaz serializabe
+public class categoria implements Serializable { // Para que una clase sea un JavaBean debe implementar la interfaz Serializabe
     
     private int idcat;      
     private String nom;    
-    private boolean est;
+    private int est; // En MySQL no existe boolean
     private int catsup;    
     
     public categoria () {        
     }         
 
-    public categoria(int idcat, String nom, boolean est, int catsup) {
+    public categoria(int idcat, String nom, int est, int catsup) {
         this.idcat = idcat;
         this.nom = nom;
         this.est = est;
@@ -34,11 +34,11 @@ public class categoria implements Serializable { // Para que una clase sea un Ja
         this.nom = nom;
     }
 
-    public boolean isEst() {
+    public int getEst() {
         return est;
     }
 
-    public void setEst(boolean est) {
+    public void setEst(int est) {
         this.est = est;
     }
 
@@ -48,6 +48,6 @@ public class categoria implements Serializable { // Para que una clase sea un Ja
 
     public void setCatsup(int catsup) {
         this.catsup = catsup;
-    }
+    }    
         
 }

@@ -3,9 +3,9 @@
 DELIMITER //
 create or replace procedure usp_cargarListCategoriaSuperior()
 begin
-	select   c.IDCAT,c.NOM_CAT
+	select   c.IDCAT,c.NOM_CAT,c.EST_CAT,c.CATSUP_CAT
 	from     categoria c
-    where	 c.IDCAT = c.CATSUP_CAT and c.EST_CAT = true
+    where	 c.IDCAT = c.CATSUP_CAT and c.EST_CAT = 1
  	order by c.IDCAT;
 end; //
 DELIMITER &&
@@ -19,9 +19,9 @@ create or replace procedure usp_cargarListSubCategoria(
 	catsup int
 )
 begin
-	select   c.IDCAT,c.NOM_CAT
+	select   c.IDCAT,c.NOM_CAT,c.EST_CAT,c.CATSUP_CAT
 	from     categoria c
-    where	 c.IDCAT <> c.CATSUP_CAT and c.EST_CAT = true and c.CATSUP_CAT = catsup
+    where	 c.IDCAT <> c.CATSUP_CAT and c.EST_CAT = 1 and c.CATSUP_CAT = catsup
  	order by c.IDCAT;
 end; //
 DELIMITER &&
