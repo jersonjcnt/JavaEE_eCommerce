@@ -4,6 +4,8 @@
     Author     : Jorge Baez
 --%>
 
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dao.daoCategoria"%>
 <!DOCTYPE html>
@@ -232,11 +234,17 @@
                                                                 <div class="panel panel-default">
                                                                         <div class="panel-heading">
                                                                                 <h4 class="panel-title">
-                                                                                        <a data-toggle="collapse" data-parent="#accordian" href="#<%= idCategoriaSuperior %>"> <%-- Al presionar los enlaces de Categoria Superior hace referencia href="#<%= idCategoriaSuperior %>" a la etiqueta que tiene id="<%= idCategoriaSuperior %>" --%>
-                                                                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                                                                        <a                                                                                                 
+                                                                                                <%  if (objCat.getNumeroSubCategoria(idCategoriaSuperior) > 0) { %>
+                                                                                                        data-toggle="collapse" data-parent="#accordian" 
+                                                                                                <%  } %>  
+                                                                                                        href="#<%= idCategoriaSuperior %>"> <%-- Al presionar los enlaces de Categoria Superior hace referencia href="#<%= idCategoriaSuperior %>" a la etiqueta que tiene id="<%= idCategoriaSuperior %>" --%>
+                                                                                                <%  if (objCat.getNumeroSubCategoria(idCategoriaSuperior) > 0) { %>
+                                                                                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>                                                                                                                                                                                             
+                                                                                                <%  } %>        
                                                                                                 <%= objCat.obtenerCategoriaSuperior(i).getNom() %>
                                                                                                 <%-- Ropa deportiva --%>
-                                                                                        </a>
+                                                                                        </a>                                                                                                                                                                                
                                                                                 </h4>
                                                                         </div>
                                                                         <div id="<%= idCategoriaSuperior %>" class="panel-collapse collapse"> <%--  --%>

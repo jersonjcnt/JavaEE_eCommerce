@@ -26,3 +26,16 @@ begin
 end; //
 DELIMITER &&
 call usp_cargarListSubCategoria(5);
+
+/*Procedimiento Almacenado que obtiene la cantidad de subcategorias por categorias superiores de la tabla CATEGORIA*/
+DELIMITER //
+create or replace procedure usp_getNumeroSubCategoria(
+	catsup int
+)
+begin
+	select count(*) as idc
+	from   categoria c
+    where  c.CATSUP_CAT = catsup and c.IDCAT <> catsup;
+end; //
+DELIMITER &&
+call usp_getNumeroSubCategoria(5);

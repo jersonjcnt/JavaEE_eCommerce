@@ -42,7 +42,7 @@ public class daoCategoria {
         try {
             CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTSUBCATEGORIA(?)}");
             st.setInt(1,catsup);
-            ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(1);
+            ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(2);
             
             while (rs.next()) {
                 categoria objCat = new categoria(); //Se crea el objeto de la clase empleado
@@ -59,6 +59,31 @@ public class daoCategoria {
         }
         return null;
     }
+    
+    public int getNumeroSubCategoria(int catsup) {       
+        try {
+            CallableStatement st = connection.prepareCall("{CALL USP_GETNUMEROSUBCATEGORIA(?)}");
+            st.setInt(1,catsup);
+            ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(2);
+                                            
+            while (rs.next()) {
+                rs.getInt(1);
+                break;  
+            }
+            return rs.getInt(1);
+            
+//            int numeroSubCategoria = 0;
+//            while (rs.next()) {
+//                numeroSubCategoria = rs.getInt(1);
+//                break;  
+//            }
+//            return numeroSubCategoria;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("Error en Obtener");
+        }              
+        return 0;
+    }    
     
     public categoria obtenerCategoriaSuperior(int i) {
         return catSup.get(i);           
