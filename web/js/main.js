@@ -1,6 +1,6 @@
 /*price range*/
 
- $('#sl2').slider();
+// $('#sl2').slider(); // Uncaught TypeError: $(...).slider is not a function at main.js:3 
 
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
