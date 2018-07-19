@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas;
-import static controlador.controladorMoneda.thisIsNotThreadsafe;
+package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,8 +17,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jorge Baez
  */
-public class Inicio extends HttpServlet {        
+public class controladorMoneda extends HttpServlet {                     
     
+    public static String thisIsNotThreadsafe;
+        
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,48 +38,17 @@ public class Inicio extends HttpServlet {
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet home</title>");            
+//            out.println("<title>Servlet controladorMoneda</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet home at " + request.getContextPath() + "</h1>");            
+//            out.println("<h1>Servlet controladorMoneda at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
-//        }
-        HttpSession sesion = request.getSession();        
-        if (thisIsNotThreadsafe == null) {
-            thisIsNotThreadsafe = null;
-            sesion.setAttribute("nombreMoneda", "$ Pesos Mexicanos");
-            sesion.setAttribute("tipoMoneda", "MXN");            
-        } else {
-            switch (thisIsNotThreadsafe) {
-                case "MXN":
-                    thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "$ Pesos Mexicanos");
-                    sesion.setAttribute("tipoMoneda", "MXN");                    
-                break;
-
-                case "COP":
-                    thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "Pesos Colombianos");
-                    sesion.setAttribute("tipoMoneda", "COP");                    
-                break;
-
-                case "USD":
-                    thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "Dolar Estadounidense");
-                    sesion.setAttribute("tipoMoneda", "USD");                    
-                break;
-
-                case "PEN":
-                    thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "Sol Peruano");
-                    sesion.setAttribute("tipoMoneda", "PEN");                    
-                break;                                                                
-            }
-        }
-        request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
-    }
-
+//        }   
+        thisIsNotThreadsafe  = request.getParameter("moneda");
+        response.sendRedirect("home"); // Redirigimos el servlet controladorMoneda.java a la url /home
+    }   
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -92,7 +62,7 @@ public class Inicio extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-    }
+    }    
 
     /**
      * Handles the HTTP <code>POST</code> method.

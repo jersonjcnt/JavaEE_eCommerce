@@ -1,1 +1,1 @@
-<% response.sendRedirect("home"); %> <!-- Redirigimos index.jsp a /home -->
+<% response.sendRedirect("home"); %> <%-- Redirigimos el JSP index.jsp a la url /home --%>

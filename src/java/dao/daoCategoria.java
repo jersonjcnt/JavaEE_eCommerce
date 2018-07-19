@@ -2,7 +2,7 @@
 package dao;
 //import conexion.clsConexion;
 import conexion.clsConexion;
-import modelos.categoria;
+import modelos_JavaBeans.categoria;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.Connection;

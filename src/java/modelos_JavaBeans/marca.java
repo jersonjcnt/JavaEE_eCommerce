@@ -1,5 +1,5 @@
 
-package modelos;
+package modelos_JavaBeans;
 import java.io.Serializable;
 public class marca implements Serializable {
     

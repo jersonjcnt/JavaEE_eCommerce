@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <!-- Esto se crea automaticamente cuando creas un servlet -->
-    <servlet>        
+    <servlet>
         <servlet-name>home</servlet-name>
         <!-- Como se hace referencia a ese servlet -->
         <servlet-class>vistas.Inicio</servlet-class>
         <!-- Donde se almacena la clase y nombre del servlet -->
     </servlet>
+    <servlet>
+        <servlet-name>controladorMoneda</servlet-name>
+        <servlet-class>controlador.controladorMoneda</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>home</servlet-name>
         <!-- Como se hace referencia a ese servlet -->
         <url-pattern>/home</url-pattern>
-        <!-- Accedemos al servlet Inicio a travez de la url /home -->
+        <!-- Accedemos al servlet Inicio.java a travez de la url /home -->
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controladorMoneda</servlet-name>
+        <url-pattern>/controladorMoneda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -19,7 +27,7 @@
         </session-timeout>
     </session-config>
     <!-- <error-page> -->
-        <!-- <location>/404.html</location> -->
-        <!-- Error 404 personalizado -->
+    <!-- <location>/404.html</location> -->
+    <!-- Error 404 personalizado -->
     <!-- </error-page> -->
 </web-app>

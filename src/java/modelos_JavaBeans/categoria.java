@@ -1,5 +1,5 @@
 
-package modelos;
+package modelos_JavaBeans;
 import java.io.Serializable;
 public class categoria implements Serializable { // Para que una clase sea un JavaBean debe implementar la interfaz Serializabe
     
