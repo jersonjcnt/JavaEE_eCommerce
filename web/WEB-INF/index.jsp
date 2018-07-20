@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Inicio | Crea e-Commerce JAVA EE con pagos Online Paypal y Payu</title>
+    <title>Home | Crea e-Commerce JAVA EE con pagos Online Paypal y Payu</title>
     <%@include file="../WEB-INF/1 css.jsp" %>
 </head><!--/head-->
 

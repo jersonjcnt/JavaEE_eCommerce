@@ -152,7 +152,7 @@
 			<div class="container">
 				<div class="row">
 					<p class="pull-left">Copyright © 2019 . Todos los derechos reservados.</p>
-					<p class="pull-right">Curso diseñado por <span><a target="_blank" href="https://www.udemy.com/user/christian-gamez-2">Christian Camilo Gámez</a></span></p>
+					<p class="pull-right">Página web diseñada por <span><a target="_blank" href="https://twitter.com/jorge_cywdt">Jorge Ernesto</a></span></p>
 				</div>
 			</div>
 		</div>		

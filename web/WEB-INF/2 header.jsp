@@ -5,8 +5,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@e-shopper.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +51 956122169</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> jorge.cywdt@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>                                    
@@ -16,9 +16,7 @@
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>								
 							</ul>
 						</div>
 					</div>
@@ -41,7 +39,7 @@
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="controladorMoneda?moneda=MXN" href="home?moneda=MXN">Peso Mexicanos (MXN)</a></li> <!-- Vamos a redireccionar a un servlet llamado CambiarMoneda.java ycontroladorMoneda vamos a pasar como parametro una variable llamada moneda -->
+									<li><a href="controladorMoneda?moneda=MXN" href="home?moneda=MXN">Peso Mexicanos (MXN)</a></li> <!-- Vamos a redireccionar a un servlet llamado controladorMoneda.java vamos a pasar como parametro una variable llamada moneda -->
 									<li><a href="controladorMoneda?moneda=COP" href="home?moneda=COP">Peso Colombianos (COP)</a></li>                                                                        
 									<li><a href="controladorMoneda?moneda=USD" href="home?moneda=USD">Dolar Estadounidenses (USD)</a></li>
 									<li><a href="controladorMoneda?moneda=PEN" href="home?moneda=PEN">Sol Peruanos (PEN)</a></li>
