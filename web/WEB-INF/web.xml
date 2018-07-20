@@ -11,6 +11,10 @@
         <servlet-name>controladorMoneda</servlet-name>
         <servlet-class>controlador.controladorMoneda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Mantenimiento</servlet-name>
+        <servlet-class>vistas.Mantenimiento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>home</servlet-name>
         <!-- Como se hace referencia a ese servlet -->
@@ -20,6 +24,10 @@
     <servlet-mapping>
         <servlet-name>controladorMoneda</servlet-name>
         <url-pattern>/controladorMoneda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Mantenimiento</servlet-name>
+        <url-pattern>/mantenimiento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
