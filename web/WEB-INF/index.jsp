@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | Crea e-Commerce JAVA EE con pagos Online Paypal y Payu</title>
-    <%@include file="../WEB-INF/1 css.jsp" %>
+    <%@include file="../WEB-INF/1 css.jsp" %> <%-- <%@include file="1 css.jsp" %> --%>
 </head><!--/head-->
 
 <body>
@@ -574,7 +574,7 @@
 								<i class="fa fa-angle-right"></i>
 							  </a>			
 						</div>
-					</div><!--/recommended_items-->					
+					</div><!--/recommended_items-->
                                         
 				</div>
 			</div>

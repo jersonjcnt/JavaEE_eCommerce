@@ -39,3 +39,15 @@ begin
 end; //
 DELIMITER &&
 call usp_getNumeroSubCategoria(5);
+
+/*Procedimiento Almacenado que carga la tabla CATEGORIA*/
+DELIMITER //
+create or replace procedure usp_cargarListCategoria()
+begin
+	select   c.IDCAT,c.NOM_CAT,c.EST_CAT,c.CATSUP_CAT
+	from     categoria c
+    where	 c.EST_CAT = 1
+ 	order by c.NOM_CAT;
+end; //
+DELIMITER &&
+call usp_cargarListCategoria();

@@ -1,6 +1,5 @@
 
 package dao;
-//import conexion.clsConexion;
 import conexion.clsConexion;
 import modelos_JavaBeans.categoria;
 import java.util.List;
@@ -11,9 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 public class daoCategoria {
 
-    private Connection connection = new clsConexion().getConnection();    
+    private Connection connection = new clsConexion().getConnection();
     private List<categoria> catSup;
     private List<categoria> SubCat;
+    private List<categoria> cat;
     
     public List<categoria> cargarListCategoriaSuperior() {
         catSup = new ArrayList<categoria>();
@@ -83,7 +83,29 @@ public class daoCategoria {
             System.out.println("Error en Obtener");
         }              
         return 0;
-    }    
+    }
+    
+    public List<categoria> cargarListCategoria() {
+        cat = new ArrayList<categoria>();
+        try {
+            CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTCATEGORIA}");
+            ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(1);
+            
+            while (rs.next()) {
+                categoria objCat = new categoria(); //Se crea el objeto de la clase empleado
+                objCat.setIdcat(rs.getInt("IDCAT"));
+                objCat.setNom(rs.getString("NOM_CAT"));
+                objCat.setEst(rs.getInt("EST_CAT"));
+                objCat.setCatsup(rs.getInt("CATSUP_CAT"));
+                cat.add(objCat); //Los datos se almacenan en el List
+            }
+            return cat; //Retorna el List
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("Error en Cargar");
+        }
+        return null;
+    }
     
     public categoria obtenerCategoriaSuperior(int i) {
         return catSup.get(i);           
@@ -99,6 +121,14 @@ public class daoCategoria {
             
     public int tamañoSubCategoria() { 
         return SubCat.size();
+    }
+    
+    public categoria obtenerCategoria(int i) {
+        return cat.get(i);           
+    }    
+            
+    public int tamañoCategoria() { 
+        return cat.size();
     }
     
 }
