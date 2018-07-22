@@ -77,16 +77,16 @@
                                             <p class="text-danger small pt-0 mt-0">*</p>
                                         </div>
                                         <div class="row form-group">
-                                            <label for="precio" class="col-form-label col-md-4">Precio (MXN):</label>
+                                            <label for="precio-mxn" class="col-form-label col-md-4">Precio (MXN):</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="precio" value="0" id="precio" class="form-control" min="0" required>
+                                                <input type="number" name="precio-mxn" value="0" id="precio-mxn" class="form-control" min="0" required>
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
                                         </div>                                
                                         <div class="row form-group">
-                                            <label for="precio-nuevo" class="col-form-label col-md-4">Precio Nuevo (MXN):</label>
+                                            <label for="precio-nuevo-mxn" class="col-form-label col-md-4">Precio Nuevo (MXN):</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="precio-nuevo" value="0" id="precio-nuevo" class="form-control" min="0" required>
+                                                <input type="number" name="precio-nuevo-mxn" value="0" id="precio-nuevo-mxn" class="form-control" min="0" required>
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
                                         </div>
@@ -202,10 +202,10 @@
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
                                         </div>                                        
-                                        <button type="submit" class="btn btn-info">Enviar</button>
-                                        <button type="submit" class="btn btn-info">Consultar</button>
-                                        <button type="submit" class="btn btn-info">Actualizar</button>
-                                        <button type="submit" class="btn btn-info">Borrar</button>
+                                        <button type="submit" name="action" class="btn btn-info">Enviar</button>
+                                        <button type="submit" name="action" class="btn btn-info">Consultar</button>
+                                        <button type="submit" name="action" class="btn btn-info">Actualizar</button>
+                                        <button type="submit" name="action" class="btn btn-info">Borrar</button>
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="tab2" role="tabpanel">

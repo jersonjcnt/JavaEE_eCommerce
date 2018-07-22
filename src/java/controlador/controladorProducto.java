@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package controlador;
+import dao.daoProductoMoneda;
+import modelos_JavaBeans.producto;
+import modelos_JavaBeans.moneda;
 
 import java.io.IOException;
 //import java.io.PrintWriter;
@@ -82,9 +85,75 @@ public class controladorProducto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
+//        processRequest(request, response);    
+
+//        String url = subirImagen(request);
+//        response.sendRedirect("foto/" + url);
+        
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");        
+        Double precioMXN = Double.parseDouble(request.getParameter("precio-mxn"));
+        Double precioNuevoMXN =  Double.parseDouble(request.getParameter("precio-nuevo-mxn"));                
+        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+        int marca = Integer.parseInt(request.getParameter("marca"));
+        int categoria = Integer.parseInt(request.getParameter("categoria"));
+        int nuevo = (request.getParameter("nuevo").equalsIgnoreCase("ON"))? 1:0; // Estructura Condicional de una sola línea, el formulario que implementaremos enviara los datos por el método post        
+        int recomendado = (request.getParameter("recomendado").equalsIgnoreCase("ON"))? 1:0;
+        int estado = (request.getParameter("estado").equalsIgnoreCase("ON"))? 1:0;                
         String url = subirImagen(request);
-        response.sendRedirect("foto/" + url);
+        // Si el dato obtenido del formulario mediante el método post es igual a "ON"
+        // Si es igual, retornamos un 1
+        // Si no es igual, retornamos un 0
+        
+        producto objPro = new producto();
+        objPro.setNom(nombre);
+        objPro.setDes(descripcion);
+        objPro.setPre(precioMXN);
+        objPro.setPreNue(precioNuevoMXN);
+        objPro.setSto(cantidad);
+        objPro.setIdMar(marca);
+        objPro.setIdCat(categoria);
+        objPro.setNue(nuevo);
+        objPro.setRec(recomendado);
+        objPro.setEst(estado);
+        objPro.setImg(url);
+        
+        Double precioUSD = Double.parseDouble(request.getParameter("precio-usd"));
+        Double precioNuevoUSD =  Double.parseDouble(request.getParameter("precio-nuevo-usd"));        
+        Double precioCOP = Double.parseDouble(request.getParameter("precio-cop"));
+        Double precioNuevoCOP =  Double.parseDouble(request.getParameter("precio-nuevo-cop"));
+        Double precioPEN = Double.parseDouble(request.getParameter("precio-pen"));
+        Double precioNuevoPEN =  Double.parseDouble(request.getParameter("precio-nuevo-pen"));
+        
+        moneda objMon = new moneda();
+        objMon.setNom("USD");      
+        objMon.setPre(precioUSD);
+        objMon.setPreNue(precioNuevoUSD);
+        
+        moneda objMon2 = new moneda();
+        objMon2.setNom("COP");      
+        objMon2.setPre(precioCOP);
+        objMon2.setPreNue(precioNuevoCOP);
+        
+        moneda objMon3 = new moneda();
+        objMon3.setNom("PEN");      
+        objMon3.setPre(precioPEN);
+        objMon3.setPreNue(precioNuevoPEN);
+                        
+        String accion = request.getParameter("accion"); 
+        
+        daoProductoMoneda objProMon = new daoProductoMoneda();
+        
+        if (accion.equalsIgnoreCase("Enviar")) {
+            try {
+                objProMon.insertProductoMoneda(objPro, objMon, objMon2, objMon3);
+                request.setAttribute("Mensaje del Sistema", "¡Producto agregado con éxito!");
+                request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response); // Cuando accedemos al servlet Mantenimiento.java a travez de la url /mantenimiento, lo que hace el servlet es redirigirnos a index.jsp que esta dentro de WEB-INF/mantenimiento y que no puede ser accedido
+            } catch(Exception e) {
+                request.setAttribute("Mensaje del Sistema", "¡Producto agregado con éxito!");
+                request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response);
+            }            
+        }
     }
     
     private String subirImagen(HttpServletRequest request) {

@@ -12,17 +12,17 @@ DELIMITER &&
 
 /*Procedimiento Almacenado que inserta un nuevo registro en la tabla PRODUCTO y nuevos registros en la tabla MONEDA*/
 DELIMITER //
-create or replace procedure usp_insertProducto(	
-	idc    int,
-    idm	   int,
-    nompro varchar(50),  
-	despro varchar(250),
+create or replace procedure usp_insertProductoMoneda(		
+    nom    varchar(50),  
+	des    varchar(250),
 	mxn    decimal(19,2),
 	nuemxn decimal(19,2),
     sto    int,
-    nue    tinyint(1), /*Nuevo*/
-    rec    tinyint(1), /*Recomendado*/
-    est    tinyint(1), /*Estado*/
+    idm	   int,
+    idc    int,    
+    nue    tinyint(1),
+    rec    tinyint(1),
+    est    tinyint(1),
     img    varchar(50),
     
     nomusd varchar(3),
@@ -40,7 +40,7 @@ create or replace procedure usp_insertProducto(
 begin		
     declare idp int; /*Las variable se deben declarar después del begin*/
     
-    insert into producto values(null,idc,idm,nompro,despro,mxn,nuevomxn,sto,nue,rec,est,img);
+    insert into producto values(null,nom,des,mxn,nuemxn,sto,idm,idc,nue,rec,est,img);
         	
     set idp = (select last_insert_id()); /*Le asignamos a la variable idp el ultimo idpro generado*/            
     insert into moneda values(nomusd,idp,usd,nueusd);
