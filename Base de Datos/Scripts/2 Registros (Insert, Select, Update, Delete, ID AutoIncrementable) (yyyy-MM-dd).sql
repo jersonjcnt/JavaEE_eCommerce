@@ -15,8 +15,13 @@ insert into marca values(2,'MARCA 2',1);
 insert into marca values(3,'MARCA 3',1);
 
 /*Si no se especifica el ID, la propiedad AutoIncrementable se ejecuta*/
-insert into marca (nom_mar) values('MARCA 1',1);
-insert into marca (nom_mar) values('MARCA 2',1);
-insert into marca (nom_mar) values('MARCA 3',1);
+insert into marca (nom_mar,est_mar) values('MARCA 1',1);
+insert into marca (nom_mar,est_mar) values('MARCA 2',1);
+insert into marca (nom_mar,est_mar) values('MARCA 3',1);
+
+/*Si no se especifica el ID, la propiedad AutoIncrementable se ejecuta*/
+insert into marca values(null,'MARCA 1',1);
+insert into marca values(null,'MARCA 2',1);
+insert into marca values(null,'MARCA 3',1);
 
 commit;

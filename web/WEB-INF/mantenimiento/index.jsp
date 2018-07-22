@@ -74,6 +74,7 @@
                                             <div class="col-md-7">
                                                 <textarea rows="3" name="descripcion" id="descripcion" class="form-control" required></textarea>
                                             </div>
+                                            <p class="text-danger small pt-0 mt-0">*</p>
                                         </div>
                                         <div class="row form-group">
                                             <label for="precio" class="col-form-label col-md-4">Precio (MXN):</label>

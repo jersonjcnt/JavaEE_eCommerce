@@ -5,17 +5,17 @@
  */
 package controlador;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
+import java.io.File;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -119,10 +119,10 @@ public class controladorProducto extends HttpServlet {
             }
         } catch (FileUploadException ex) {
             request.setAttribute("subida", false);
-//            Logger.getLogger(controladorProducto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controladorProducto.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             request.setAttribute("subida", false);
-//            Logger.getLogger(controladorProducto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controladorProducto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
     }
