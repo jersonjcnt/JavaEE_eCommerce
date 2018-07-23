@@ -61,6 +61,11 @@
                                     <!-- <hr class="bg-info"> -->
                                     <p class="pb-0 mb-0">Formulario para el mantenimiento de productos.</p>
                                     <p class="text-danger small pt-0 mt-0">*Todos los campos son obligatorios</p>                            
+                                    ${ mensajeExito }
+                                    ${ mensajeError }
+                                    ${ SQLException }
+                                    ${ mensajeError2 }
+                                    ${ Datos }                                    
                                     <form action="controladorProducto" method="post" enctype="multipart/form-data"> <!-- Vamos a redireccionar a un servlet llamado controlProducto.java vamos a pasar como parametro una variable llamada moneda -->
                                         <div class="row form-group">
                                             <label for="nombre" class="col-form-label col-md-4">Nombre:</label>
@@ -184,7 +189,7 @@
 
                                                 <div class="form-check">
                                                         <label class="form-check-label">
-                                                                <input type="checkbox" name="recomendado" value="OFF" id="recomendado"> Recomendado
+                                                                <input type="checkbox" name="recomendado" value="ON" id="recomendado"> Recomendado
                                                         </label>
                                                 </div>
 
@@ -198,14 +203,14 @@
                                         <div class="row form-group">
                                             <label for="imagen" class="col-form-label col-md-4">Imágen:</label>
                                             <div class="col-md-7">
-                                                <input type="file" name="imagen" value="Seleccionar una imagen" id="imagen" class="form-control" required>
+                                                <input type="file" name="imagen" value="imagen" id="imagen" class="form-control" required>
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
                                         </div>                                        
-                                        <button type="submit" name="action" class="btn btn-info">Enviar</button>
-                                        <button type="submit" name="action" class="btn btn-info">Consultar</button>
-                                        <button type="submit" name="action" class="btn btn-info">Actualizar</button>
-                                        <button type="submit" name="action" class="btn btn-info">Borrar</button>
+                                        <button type="submit" name="action" value="Enviar" class="btn btn-info">Enviar</button>
+                                        <button type="submit" name="action" value="Consultar" class="btn btn-info">Consultar</button>
+                                        <button type="submit" name="action" value="Actualizar" class="btn btn-info">Actualizar</button>
+                                        <button type="submit" name="action" value="Borrar" class="btn btn-info">Borrar</button>
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="tab2" role="tabpanel">

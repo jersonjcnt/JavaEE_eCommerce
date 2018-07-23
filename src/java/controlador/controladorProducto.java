@@ -7,6 +7,7 @@ package controlador;
 import dao.daoProductoMoneda;
 import modelos_JavaBeans.producto;
 import modelos_JavaBeans.moneda;
+import static dao.daoProductoMoneda.SQLException;
 
 import java.io.IOException;
 //import java.io.PrintWriter;
@@ -87,76 +88,102 @@ public class controladorProducto extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);    
 
-//        String url = subirImagen(request);
-//        response.sendRedirect("foto/" + url);
+        recibirDatos(request);                 
         
-        String nombre = request.getParameter("nombre");
-        String descripcion = request.getParameter("descripcion");        
-        Double precioMXN = Double.parseDouble(request.getParameter("precio-mxn"));
-        Double precioNuevoMXN =  Double.parseDouble(request.getParameter("precio-nuevo-mxn"));                
-        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        int marca = Integer.parseInt(request.getParameter("marca"));
-        int categoria = Integer.parseInt(request.getParameter("categoria"));
-        int nuevo = (request.getParameter("nuevo").equalsIgnoreCase("ON"))? 1:0; // Estructura Condicional de una sola línea, el formulario que implementaremos enviara los datos por el método post        
-        int recomendado = (request.getParameter("recomendado").equalsIgnoreCase("ON"))? 1:0;
-        int estado = (request.getParameter("estado").equalsIgnoreCase("ON"))? 1:0;                
-        String url = subirImagen(request);
+        String nombre = request.getAttribute("nombre").toString();
+        String descripcion = request.getAttribute("descripcion").toString();
+        Double precioMXN = Double.parseDouble(request.getAttribute("precio-mxn").toString());
+        Double precioNuevoMXN =  Double.parseDouble(request.getAttribute("precio-nuevo-mxn").toString());                
+        int stock = Integer.parseInt(request.getAttribute("cantidad").toString());
+        int marca = Integer.parseInt(request.getAttribute("marca").toString());
+        int categoria = Integer.parseInt(request.getAttribute("categoria").toString());
+        int nuevo;
+        int recomendado;
+        int estado;
+        try {
+            nuevo = request.getAttribute("nuevo").toString().equalsIgnoreCase("ON")? 1:0; // Estructura Condicional de una sola línea, el formulario que implementaremos enviara los datos por el método post                                
+        } catch (Exception e) {
+            System.out.println(e);
+            nuevo = 0;
+        }
+        try {
+            recomendado = request.getAttribute("recomendado").toString().equalsIgnoreCase("ON")? 1:0;            
+        } catch (Exception e) {
+            System.out.println(e);
+            recomendado = 0;
+        }        
+        try {
+            estado = request.getAttribute("visible").toString().equalsIgnoreCase("ON")? 1:0;
+        } catch (Exception e) {
+            System.out.println(e);
+            estado = 0;
+        }
         // Si el dato obtenido del formulario mediante el método post es igual a "ON"
         // Si es igual, retornamos un 1
         // Si no es igual, retornamos un 0
+        String url = request.getAttribute("imagen").toString();        
+        
+        String nombreUSD = "USD";
+        Double precioUSD = Double.parseDouble(request.getAttribute("precio-usd").toString());
+        Double precioNuevoUSD =  Double.parseDouble(request.getAttribute("precio-nuevo-usd").toString());        
+        String nombreCOP = "COP";
+        Double precioCOP = Double.parseDouble(request.getAttribute("precio-cop").toString());
+        Double precioNuevoCOP =  Double.parseDouble(request.getAttribute("precio-nuevo-cop").toString());
+        String nombrePEN = "PEN";
+        Double precioPEN = Double.parseDouble(request.getAttribute("precio-pen").toString());
+        Double precioNuevoPEN =  Double.parseDouble(request.getAttribute("precio-nuevo-pen").toString());                        
         
         producto objPro = new producto();
         objPro.setNom(nombre);
         objPro.setDes(descripcion);
         objPro.setPre(precioMXN);
         objPro.setPreNue(precioNuevoMXN);
-        objPro.setSto(cantidad);
+        objPro.setSto(stock);
         objPro.setIdMar(marca);
         objPro.setIdCat(categoria);
         objPro.setNue(nuevo);
         objPro.setRec(recomendado);
         objPro.setEst(estado);
-        objPro.setImg(url);
-        
-        Double precioUSD = Double.parseDouble(request.getParameter("precio-usd"));
-        Double precioNuevoUSD =  Double.parseDouble(request.getParameter("precio-nuevo-usd"));        
-        Double precioCOP = Double.parseDouble(request.getParameter("precio-cop"));
-        Double precioNuevoCOP =  Double.parseDouble(request.getParameter("precio-nuevo-cop"));
-        Double precioPEN = Double.parseDouble(request.getParameter("precio-pen"));
-        Double precioNuevoPEN =  Double.parseDouble(request.getParameter("precio-nuevo-pen"));
+        objPro.setImg(url);                
         
         moneda objMon = new moneda();
-        objMon.setNom("USD");      
+        objMon.setNom(nombreUSD);      
         objMon.setPre(precioUSD);
         objMon.setPreNue(precioNuevoUSD);
         
         moneda objMon2 = new moneda();
-        objMon2.setNom("COP");      
+        objMon2.setNom(nombreCOP);      
         objMon2.setPre(precioCOP);
         objMon2.setPreNue(precioNuevoCOP);
         
         moneda objMon3 = new moneda();
-        objMon3.setNom("PEN");      
+        objMon3.setNom(nombrePEN);      
         objMon3.setPre(precioPEN);
         objMon3.setPreNue(precioNuevoPEN);
                         
-        String accion = request.getParameter("accion"); 
+        String accion = request.getAttribute("action").toString();                
         
-        daoProductoMoneda objProMon = new daoProductoMoneda();
-        
+        daoProductoMoneda objProMon = new daoProductoMoneda();        
         if (accion.equalsIgnoreCase("Enviar")) {
-            try {
-                objProMon.insertProductoMoneda(objPro, objMon, objMon2, objMon3);
-                request.setAttribute("Mensaje del Sistema", "¡Producto agregado con éxito!");
-                request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response); // Cuando accedemos al servlet Mantenimiento.java a travez de la url /mantenimiento, lo que hace el servlet es redirigirnos a index.jsp que esta dentro de WEB-INF/mantenimiento y que no puede ser accedido
-            } catch(Exception e) {
-                request.setAttribute("Mensaje del Sistema", "¡Producto agregado con éxito!");
-                request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response);
-            }            
+            if (objProMon.insertProductoMoneda(objPro, objMon, objMon2, objMon3) == true) {
+                request.setAttribute("mensajeExito", "<div class=\"alert alert-success d-none\" id=\"mensajeExito\">Producto agregado con éxito</div>");                
+            } else {
+                request.setAttribute("mensajeError", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">No se pudo agregar producto</div>");
+                request.setAttribute("SQLException", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">" + SQLException + "</div>");                
+            }
+        } else {            
+            request.setAttribute("mensajeError2", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">Error</div>");
         }
+        request.setAttribute("Datos", "<div class=\"alert alert-success d-none\" id=\"mensajeExito\">"
+                + nombre + ", " + descripcion + ", " + precioMXN + ", " + precioNuevoMXN + ", " + stock + ", " + marca + ", " 
+                + categoria + ", " + nuevo + ", " + recomendado + ", " + estado + ", " + url + ", "
+                + nombreUSD + ", " + precioUSD + ", " + precioNuevoUSD + ", "
+                + nombreCOP + ", " + precioCOP + ", " + precioNuevoCOP + ", " 
+                + nombrePEN + ", " + precioPEN + ", " + precioNuevoPEN + "</div>");
+        request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response); // Cuando accedemos al servlet Mantenimiento.java a travez de la url /mantenimiento, lo que hace el servlet es redirigirnos a index.jsp que esta dentro de WEB-INF/mantenimiento y que no puede ser accedido
     }
     
-    private String subirImagen(HttpServletRequest request) {
+    private void recibirDatos(HttpServletRequest request) {
         try {
             FileItemFactory file = new DiskFileItemFactory();
             
@@ -181,9 +208,10 @@ public class controladorProducto extends HttpServlet {
                     File imagen = new File(nuevoNombre);
                     if (item.getContentType().contains("image")) {
                         item.write(imagen);
-                        request.setAttribute("subida", true);
-                        return nombre;
+                        request.setAttribute(item.getFieldName(), nombre); // item.getFieldName() obtiene el nombre del campo que se envio, en este caso seria imagen
                     }
+                } else {
+                    request.setAttribute(item.getFieldName(), item.getString());
                 }
             }
         } catch (FileUploadException ex) {
@@ -192,8 +220,7 @@ public class controladorProducto extends HttpServlet {
         } catch (Exception ex) {
             request.setAttribute("subida", false);
             Logger.getLogger(controladorProducto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return "";
+        }       
     }
 
     /**

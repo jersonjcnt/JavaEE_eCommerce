@@ -9,8 +9,9 @@ import java.sql.SQLException;
 public class daoProductoMoneda {
     
     private Connection connection = new clsConexion().getConnection();
+    public static String SQLException;
     
-    public void insertProductoMoneda(producto objPro,moneda objMon,moneda objMon2,moneda objMon3) {
+    public boolean insertProductoMoneda(producto objPro, moneda objMon, moneda objMon2, moneda objMon3) {
         try {
             CallableStatement st = connection.prepareCall("{CALL USP_INSERTPRODUCTOMONEDA(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             st.setString(1,objPro.getNom());
@@ -38,10 +39,13 @@ public class daoProductoMoneda {
             st.setDouble(20,objMon3.getPreNue());
             
             st.executeQuery();
-        } catch (SQLException ex) {
+            return true;
+        } catch (SQLException ex) {                 
             System.out.println(ex.getMessage());
             System.out.println("Error en Insertar");
+            SQLException = ex.getMessage();
         }
-    }
+        return false;
+    }    
     
 }

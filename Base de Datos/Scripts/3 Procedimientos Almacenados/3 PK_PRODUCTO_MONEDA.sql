@@ -23,7 +23,7 @@ create or replace procedure usp_insertProductoMoneda(
     nue    tinyint(1),
     rec    tinyint(1),
     est    tinyint(1),
-    img    varchar(50),
+    img    varchar(250),
     
     nomusd varchar(3),
     usd    decimal(19,2),
@@ -48,6 +48,7 @@ begin
     insert into moneda values(nompen,idp,pen,nuepen);    
 end; //
 DELIMITER &&
+call usp_insertProductoMoneda("a","b",0,0,1,1,1,1,1,1,"0123456789.png","PEN",0,0,"COP",0,0,"USD",0,0);
 
 /*Procedimiento Almacenado que actualiza registros en la tabla EMPLEADO*/
 DELIMITER //

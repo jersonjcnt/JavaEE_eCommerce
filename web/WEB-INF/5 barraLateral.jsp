@@ -3,7 +3,7 @@
                                         <div class="left-sidebar">
                                                 <h2>Categorías</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-products-->
-                                                        <%! int idCategoriaSuperior = 0; %>                                                       
+                                                        <%! int idCategoriaSuperior; %>                                                       
                                                         <% 
                                                             objCat.cargarListCategoriaSuperior();
                                                             for (int i = 0; i < objCat.tamañoCategoriaSuperior(); i++) { 
@@ -28,7 +28,7 @@
                                                                         <div id="<%= idCategoriaSuperior %>" class="panel-collapse collapse"> <%--  --%>
                                                                                 <div class="panel-body">
                                                                                         <ul>
-                                                                                                <%! int idSubCategoria = 0; %>
+                                                                                                <%! int idSubCategoria; %>
                                                                                                 <% 
                                                                                                     objCat.cargarListSubCategoria(idCategoriaSuperior); 
                                                                                                     for (int i2 = 0; i2 < objCat.tamañoSubCategoria(); i2++) {
