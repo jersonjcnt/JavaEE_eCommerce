@@ -47,7 +47,7 @@ begin
 	select   c.IDCAT,c.NOM_CAT,c.EST_CAT,c.CATSUP_CAT
 	from     categoria c
     where	 c.EST_CAT = 1
- 	order by c.NOM_CAT;
+ 	order by c.IDCAT;
 end; //
 DELIMITER &&
 call usp_cargarListCategoria();

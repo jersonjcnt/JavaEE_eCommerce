@@ -94,8 +94,7 @@
                                                 <input type="number" name="precio-nuevo-mxn" value="0" id="precio-nuevo-mxn" class="form-control" min="0" required>
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>
-                                        
+                                        </div>                                        
                                         <div class="row form-group">
                                             <label for="precio-usd" class="col-form-label col-md-4">Precio (USD):</label>
                                             <div class="col-md-5">
@@ -137,8 +136,7 @@
                                                 <input type="number" name="precio-nuevo-pen" value="0" id="precio-nuevo-pen" class="form-control" min="0" required>
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>
-                                        
+                                        </div>                                        
                                         <div class="row form-group">
                                             <label for="cantidad" class="col-form-label col-md-4">Cantidad:</label>
                                             <div class="col-md-5">
@@ -193,19 +191,19 @@
                                             <div class="col-md-5">                                        
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" name="nuevo" value="ON" id="nuevo" checked="checked"> Nuevo
+                                                        <input type="checkbox" name="nuevo" value="ON" id="nuevo" class="form-check-input mr-2 mb-3" checked="checked"> Nuevo
                                                     </label>
                                                 </div>
 
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" name="recomendado" value="ON" id="recomendado"> Recomendado
+                                                        <input type="checkbox" name="recomendado" value="ON" id="recomendado" class="form-check-input mr-2 mb-3"> Recomendado
                                                     </label>
                                                 </div>
 
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input type="checkbox" name="visible" value="ON" id="visible" checked="checked"> Visible
+                                                        <input type="checkbox" name="visible" value="ON" id="visible" class="form-check-input mr-2 mb-3" checked="checked"> Visible
                                                     </label>
                                                 </div>
                                             </div>
@@ -227,59 +225,13 @@
                                     <h1 class="display-4">Productos</h1>
                                     <!-- <hr class="bg-info"> -->
                                     <p class="pb-0 mb-0">Formulario para el mantenimiento de productos.</p>
-                                    <p class="text-danger small pt-0 mt-0">*Todos los campos son obligatorios</p>                                                                
-                                    <!--
-                                    <form action="controladorProducto" method="post" enctype="multipart/form-data">
-                                        <div class="row form-group">
-                                            <label for="precio-usd" class="col-form-label col-md-4">Precio (USD):</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="precio-usd" value="0" id="precio-usd" class="form-control" min="0" required>
-                                            </div>
-                                            <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>                                
-                                        <div class="row form-group">
-                                            <label for="precio-nuevo-usd" class="col-form-label col-md-4">Precio Nuevo (USD):</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="precio-nuevo-usd" value="0" id="precio-nuevo-usd" class="form-control" min="0" required>
-                                            </div>
-                                            <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="precio-cop" class="col-form-label col-md-4">Precio (COP):</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="precio-cop" value="0" id="precio-cop" class="form-control" min="0" required>
-                                            </div>
-                                            <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>                                
-                                        <div class="row form-group">
-                                            <label for="precio-nuevo-cop" class="col-form-label col-md-4">Precio Nuevo (COP):</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="precio-nuevo-cop" value="0" id="precio-nuevo-cop" class="form-control" min="0" required>
-                                            </div>
-                                            <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>
-                                        <div class="row form-group">
-                                            <label for="precio-pen" class="col-form-label col-md-4">Precio (PEN):</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="precio-pen" value="0" id="precio-pen" class="form-control" min="0" required>
-                                            </div>
-                                            <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>                                
-                                        <div class="row form-group">
-                                            <label for="precio-nuevo-pen" class="col-form-label col-md-4">Precio Nuevo (PEN):</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="precio-nuevo-pen" value="0" id="precio-nuevo-pen" class="form-control" min="0" required>
-                                            </div>
-                                            <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>                                    
-                                    </form>
-                                    -->
+                                    <p class="text-danger small pt-0 mt-0">*Todos los campos son obligatorios</p>
                                 </div>                                
                             </div>                                                                                    
                             <br /><br /><br /><br /><br />
-                        </div>
-                    </div>
-                </div>
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
 	</section>
 			
         <%@include file="../../WEB-INF/6 footer.jsp" %>
