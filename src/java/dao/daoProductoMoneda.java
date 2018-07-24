@@ -13,7 +13,7 @@ public class daoProductoMoneda {
     
     private Connection connection = new clsConexion().getConnection();
     private List<producto> pro;
-    public static String SQLException;
+    public static String insertProductoMoneda_SQLException;
     
     public List<producto> cargarListProducto(String nom) {
         pro = new ArrayList<producto>();
@@ -27,12 +27,12 @@ public class daoProductoMoneda {
                 objPro.setIdPro(rs.getInt("IDPRO"));
                 objPro.setNom(rs.getString("NOM_PRO"));
                 objPro.setDes(rs.getString("DES_PRO"));                
-                if (!nom.equalsIgnoreCase("MXN")) {
-                    objPro.setPre(rs.getDouble("mon.PRE_PRO"));
-                    objPro.setPreNue(rs.getDouble("mon.PRENUE_PRO"));
-                } else {
+                if (nom.equalsIgnoreCase("MXN")) {
                     objPro.setPre(rs.getDouble("p.PRE_PRO"));
                     objPro.setPreNue(rs.getDouble("p.PRENUE_PRO"));
+                } else {
+                    objPro.setPre(rs.getDouble("mon.PRE_PRO"));
+                    objPro.setPreNue(rs.getDouble("mon.PRENUE_PRO"));
                 }                                
                 objPro.setSto(rs.getInt("STO_PRO"));
                 objPro.setIdMar(rs.getString("NOM_MAR"));
@@ -83,9 +83,9 @@ public class daoProductoMoneda {
         } catch (SQLException ex) {                 
             System.out.println(ex.getMessage());
             System.out.println("Error en Insertar");
-            SQLException = ex.getMessage();
+            insertProductoMoneda_SQLException = ex.getMessage();
         }
         return false;
-    }        
+    }
     
 }

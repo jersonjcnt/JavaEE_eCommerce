@@ -1,7 +1,7 @@
 
 package modelos_JavaBeans;
 import java.io.Serializable;
-public class producto implements Serializable {
+public class producto implements Serializable { // Para que una clase sea un JavaBean debe implementar la interfaz Serializabe
     
     private int idPro;
     private String nom;
@@ -13,7 +13,7 @@ public class producto implements Serializable {
     private String idCat;
     private int nue; // Nuevo
     private int rec; // Recomendado
-    private int est; // Estado
+    private int est; // Estado // En MySQL no existe boolean
     private String img;
     
     public producto() {        

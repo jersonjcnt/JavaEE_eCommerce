@@ -17,16 +17,16 @@ public class daoMarca {
         mar = new ArrayList<marca>();
         try {
             CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTMARCA}");
-            ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(1);
+            ResultSet rs = st.executeQuery();
             
             while (rs.next()) {
-                marca objCat = new marca(); //Se crea el objeto de la clase empleado
+                marca objCat = new marca();
                 objCat.setIdmar(rs.getInt("IDMAR"));
                 objCat.setNom(rs.getString("NOM_MAR"));
                 objCat.setEst(rs.getInt("EST_MAR"));                
-                mar.add(objCat); //Los datos se almacenan en el List
+                mar.add(objCat);
             }
-            return mar; //Retorna el List
+            return mar;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("Error en Cargar");

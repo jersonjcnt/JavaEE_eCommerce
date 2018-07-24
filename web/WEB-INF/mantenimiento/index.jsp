@@ -63,7 +63,7 @@
                                     <p class="text-danger small pt-0 mt-0">*Todos los campos son obligatorios</p>                            
                                     ${ mensajeExito }
                                     ${ mensajeError }
-                                    ${ SQLException }
+                                    ${ insertProductoMoneda_SQLException }
                                     ${ mensajeError2 }
                                     ${ Datos }                                    
                                     <form action="controladorProducto" method="post" enctype="multipart/form-data"> <!-- Vamos a redireccionar a un servlet llamado controlProducto.java vamos a pasar como parametro una variable llamada moneda -->

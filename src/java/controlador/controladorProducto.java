@@ -7,7 +7,7 @@ package controlador;
 import dao.daoProductoMoneda;
 import modelos_JavaBeans.producto;
 import modelos_JavaBeans.moneda;
-import static dao.daoProductoMoneda.SQLException;
+import static dao.daoProductoMoneda.insertProductoMoneda_SQLException;
 
 import java.io.IOException;
 //import java.io.PrintWriter;
@@ -174,7 +174,7 @@ public class controladorProducto extends HttpServlet {
                 request.setAttribute("mensajeExito", "<div class=\"alert alert-success d-none\" id=\"mensajeExito\">Producto agregado con éxito</div>");                
             } else {
                 request.setAttribute("mensajeError", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">No se pudo agregar producto</div>");
-                request.setAttribute("SQLException", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">" + SQLException + "</div>");                
+                request.setAttribute("insertProductoMoneda_SQLException", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">" + insertProductoMoneda_SQLException + "</div>");                
             }
         } else {            
             request.setAttribute("mensajeError2", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">Error</div>");
