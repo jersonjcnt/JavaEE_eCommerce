@@ -5,10 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="dao.daoCategoria"%>
-<%@page import="modelos_JavaBeans.categoria"%>
 <%@page import="dao.daoMarca"%>
 <%@page import="modelos_JavaBeans.marca"%>
+<%@page import="dao.daoCategoria"%>
+<%@page import="modelos_JavaBeans.categoria"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
