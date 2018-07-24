@@ -150,15 +150,20 @@
                                         <div class="row form-group">
                                             <label for="marca" class="col-form-label col-md-4">Marca:</label>                               
                                             <div class="col-md-5">
-                                                <select name="marca" id="marca" class="custom-select">
-                                                    <option selected>Seleccionar marca</option>
+                                                <select name="marca" id="marca" class="form-control" required>
+                                                    <option value="" selected>Seleccionar marca</option>
                                                     <% for (marca m:objMar.cargarListMarca()){ %>
                                                         <option value="<%= m.getIdmar()%>"><%= m.getNom() %></option>
                                                     <% }; %>
                                                     
-                                                    <!-- <option value="1" selected>Opción 1</option> -->
-                                                    <!-- <option value="2">Opción 2</option> -->
-                                                    <!-- <option value="3">Opción 3</option> -->
+                                                    <!--
+                                                    <select name="marca" id="marca" class="form-control" required>
+                                                        option value="" selected>Seleccionar marca</option>
+							<option value="1">Opción 1</option>
+							<option value="2">Opción 2</option>
+							<option value="3">Opción 3</option>
+                                                    </select>
+                                                    -->
                                                 </select>
                                             </div>
                                         </div>
@@ -166,15 +171,20 @@
                                         <div class="row form-group">                                            
                                             <label for="categoria" class="col-form-label col-md-4">Categoría:</label>                               
                                             <div class="col-md-5">
-                                                <select name="categoria" id="categoria" class="custom-select">
-                                                    <option selected>Seleccionar categoría</option>
+                                                <select name="categoria" id="categoria" class="form-control" required>
+                                                    <option value="" selected>Seleccionar categoría</option>
                                                     <% for (categoria c:objCat.cargarListCategoria()) { %>
                                                         <option value="<%= c.getIdcat() %>"><%= c.getNom() %></option>
                                                     <% }; %>
                                                     
-                                                    <!-- <option value="1" selected>Opción 1</option> -->
-                                                    <!-- <option value="2">Opción 2</option> -->
-                                                    <!-- <option value="3">Opción 3</option> -->
+                                                    <!--
+                                                    <select name="categoria" id="categoria" class="form-control" required>
+                                                        option value="" selected>Seleccionar categoría</option>
+							<option value="1">Opción 1</option>
+							<option value="2">Opción 2</option>
+							<option value="3">Opción 3</option>
+                                                    </select>
+                                                    -->
                                                 </select>
                                             </div>
                                         </div>
@@ -182,21 +192,21 @@
                                             <label for="opciones" class="col-form-label col-md-4">Opciones:</label> 
                                             <div class="col-md-5">                                        
                                                 <div class="form-check">
-                                                        <label class="form-check-label">
-                                                                <input type="checkbox" name="nuevo" value="ON" id="nuevo" checked="checked"> Nuevo
-                                                        </label>
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" name="nuevo" value="ON" id="nuevo" checked="checked"> Nuevo
+                                                    </label>
                                                 </div>
 
                                                 <div class="form-check">
-                                                        <label class="form-check-label">
-                                                                <input type="checkbox" name="recomendado" value="ON" id="recomendado"> Recomendado
-                                                        </label>
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" name="recomendado" value="ON" id="recomendado"> Recomendado
+                                                    </label>
                                                 </div>
 
                                                 <div class="form-check">
-                                                        <label class="form-check-label">
-                                                                <input type="checkbox" name="visible" value="ON" id="visible" checked="checked"> Visible
-                                                        </label>
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" name="visible" value="ON" id="visible" checked="checked"> Visible
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>                                        

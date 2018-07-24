@@ -1,14 +1,20 @@
 /*Procedimiento Almacenado que carga la tabla EMPLEADO*/
 DELIMITER //
-create or replace procedure usp_cargarListEmpleado()
+create or replace procedure usp_cargarListProducto(
+	nom varchar(3)
+)
 begin
-	select     e.IDEMP,e.NOM_EMP,e.APE_EMP,e.SEX_EMP,e.FECNAC_EMP,e.DIR_EMP,e.TEL_EMP,e.CEL_EMP,e.DNI_EMP,e.FECING_EMP,e.CORELE_EMP,e.SUE_EMP,e.EST_EMP,e.USU_EMP,e.CON_EMP,tu.DES_TIPUSU
-	from       empleado as e
-	inner join tipousuario as tu
-    on         e.IDTIPUSU = tu.IDTIPUSU
-	order by   e.IDEMP;
+	select     p.IDPRO,p.NOM_PRO,p.DES_PRO,p.PRE_PRO,p.PRENUE_PRO,p.STO_PRO,m.NOM_MAR,c.NOM_CAT,p.NUE_PRO,p.REC_PRO,p.EST_PRO,p.IMG_PRO,
+			   mon.NOM_MON,mon.PRE_PRO,mon.PRENUE_PRO
+	from       producto as p
+    inner join moneda as mon on p.IDPRO = mon.IDPRO
+    inner join marca as m on p.IDMAR = m.IDMAR
+	inner join categoria as c on p.IDCAT = c.IDCAT
+    where      p.EST_PRO = 1 and m.EST_MAR = 1 and c.EST_CAT = 1 and mon.NOM_MON = nom
+	order by   p.IDPRO;
 end; //
 DELIMITER &&
+call usp_cargarListProducto('USD');
 
 /*Procedimiento Almacenado que inserta un nuevo registro en la tabla PRODUCTO y nuevos registros en la tabla MONEDA*/
 DELIMITER //

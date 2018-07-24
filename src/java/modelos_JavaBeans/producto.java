@@ -9,8 +9,8 @@ public class producto implements Serializable {
     private double pre;
     private double preNue;
     private int sto;
-    private int idMar;
-    private int idCat;
+    private String idMar;
+    private String idCat;
     private int nue; // Nuevo
     private int rec; // Recomendado
     private int est; // Estado
@@ -19,7 +19,7 @@ public class producto implements Serializable {
     public producto() {        
     }
 
-    public producto(int idPro, String nom, String des, double pre, double preNue, int sto, int idMar, int idCat, int nue, int rec, int est, String img) {
+    public producto(int idPro, String nom, String des, double pre, double preNue, int sto, String idMar, String idCat, int nue, int rec, int est, String img) {
         this.idPro = idPro;
         this.nom = nom;
         this.des = des;
@@ -82,19 +82,19 @@ public class producto implements Serializable {
         this.sto = sto;
     }
 
-    public int getIdMar() {
+    public String getIdMar() {
         return idMar;
     }
 
-    public void setIdMar(int idMar) {
+    public void setIdMar(String idMar) {
         this.idMar = idMar;
     }
 
-    public int getIdCat() {
+    public String getIdCat() {
         return idCat;
     }
 
-    public void setIdCat(int idCat) {
+    public void setIdCat(String idCat) {
         this.idCat = idCat;
     }
 
@@ -128,6 +128,6 @@ public class producto implements Serializable {
 
     public void setImg(String img) {
         this.img = img;
-    }           
+    }            
     
 }

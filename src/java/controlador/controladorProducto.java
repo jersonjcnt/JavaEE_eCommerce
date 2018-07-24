@@ -88,15 +88,20 @@ public class controladorProducto extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);    
 
-        recibirDatos(request);                 
+        recibirDatos(request);
+        
+//        Esto es asi por que en el momento de cargar la lista de datos de la tabla producto, cargamos el nombre de la categoria y no su id
+//        public String getIdCategoria(){        
+//            return String.valueOf(cboCategoria.getSelectedIndex() + 1);
+//        }
         
         String nombre = request.getAttribute("nombre").toString();
         String descripcion = request.getAttribute("descripcion").toString();
         Double precioMXN = Double.parseDouble(request.getAttribute("precio-mxn").toString());
         Double precioNuevoMXN =  Double.parseDouble(request.getAttribute("precio-nuevo-mxn").toString());                
         int stock = Integer.parseInt(request.getAttribute("cantidad").toString());
-        int marca = Integer.parseInt(request.getAttribute("marca").toString());
-        int categoria = Integer.parseInt(request.getAttribute("categoria").toString());
+        String marca = request.getAttribute("marca").toString();
+        String categoria = request.getAttribute("categoria").toString();
         int nuevo;
         int recomendado;
         int estado;
