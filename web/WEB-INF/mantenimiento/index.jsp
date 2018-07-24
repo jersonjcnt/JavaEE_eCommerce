@@ -207,7 +207,7 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                         <div class="row form-group">
                                             <label for="imagen" class="col-form-label col-md-4">Imágen:</label>
                                             <div class="col-md-7">
