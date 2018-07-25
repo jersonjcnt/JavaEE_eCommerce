@@ -171,15 +171,15 @@ public class controladorProducto extends HttpServlet {
         daoProductoMoneda objProMon = new daoProductoMoneda();        
         if (accion.equalsIgnoreCase("Enviar")) {
             if (objProMon.insertProductoMoneda(objPro, objMon, objMon2, objMon3) == true) {
-                request.setAttribute("mensajeExito", "<div class=\"alert alert-success d-none\" id=\"mensajeExito\">Producto agregado con éxito</div>");                
+                request.setAttribute("mensajeExito", "<div class=\"alert alert-success\" id=\"mensajeExito\">Producto agregado con éxito</div>");                
             } else {
-                request.setAttribute("mensajeError", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">No se pudo agregar producto</div>");
-                request.setAttribute("insertProductoMoneda_SQLException", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">" + insertProductoMoneda_SQLException + "</div>");                
+                request.setAttribute("mensajeError", "<div class=\"alert alert-danger\" id=\"mensajeError\">No se pudo agregar producto</div>");
+                request.setAttribute("insertProductoMoneda_SQLException", "<div class=\"alert alert-danger\" id=\"mensajeError\">" + insertProductoMoneda_SQLException + "</div>");                
             }
         } else {            
-            request.setAttribute("mensajeError2", "<div class=\"alert alert-danger d-none\" id=\"mensajeError\">Error</div>");
+            request.setAttribute("mensajeError2", "<div class=\"alert alert-danger\" id=\"mensajeError\">Error</div>");
         }
-        request.setAttribute("Datos", "<div class=\"alert alert-success d-none\" id=\"mensajeExito\">"
+        request.setAttribute("Datos", "<div class=\"alert alert-success\" id=\"mensajeExito\">"
                 + nombre + ", " + descripcion + ", " + precioMXN + ", " + precioNuevoMXN + ", " + stock + ", " + marca + ", " 
                 + categoria + ", " + nuevo + ", " + recomendado + ", " + estado + ", " + url + ", "
                 + nombreUSD + ", " + precioUSD + ", " + precioNuevoUSD + ", "
