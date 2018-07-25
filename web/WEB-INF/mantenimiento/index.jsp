@@ -214,7 +214,7 @@
                                                 <input type="file" name="imagen" value="imagen" id="imagen" class="form-control" required>
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>                                        
+                                        </div>
                                         <button type="submit" name="action" value="Enviar" class="btn btn-info">Enviar</button>
                                         <button type="submit" name="action" value="Consultar" class="btn btn-info">Consultar</button>
                                         <button type="submit" name="action" value="Actualizar" class="btn btn-info">Actualizar</button>
