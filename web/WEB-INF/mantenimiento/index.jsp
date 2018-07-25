@@ -152,7 +152,7 @@
                                                     <option value="" selected>Seleccionar marca</option>
                                                     <% for (marca m:objMar.cargarListMarca()){ %>
                                                         <option value="<%= m.getIdmar()%>"><%= m.getNom() %></option>
-                                                    <% }; %>
+                                                    <% } %>
                                                     
                                                     <!--
                                                     <select name="marca" id="marca" class="form-control" required>
@@ -173,7 +173,7 @@
                                                     <option value="" selected>Seleccionar categoría</option>
                                                     <% for (categoria c:objCat.cargarListCategoria()) { %>
                                                         <option value="<%= c.getIdcat() %>"><%= c.getNom() %></option>
-                                                    <% }; %>
+                                                    <% } %>
                                                     
                                                     <!--
                                                     <select name="categoria" id="categoria" class="form-control" required>
