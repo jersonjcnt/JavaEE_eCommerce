@@ -220,11 +220,11 @@ public class controladorProducto extends HttpServlet {
                 }
             }
         } catch (FileUploadException ex) {
-            request.setAttribute("subida", false);
             Logger.getLogger(controladorProducto.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("subida", false);
         } catch (Exception ex) {
-            request.setAttribute("subida", false);
             Logger.getLogger(controladorProducto.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("subida", false);
         }       
     }
 

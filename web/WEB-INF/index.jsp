@@ -5,7 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- <%@page import="dao.daoCategoria"%> --%>
+<%@page import="dao.daoProductoMoneda"%>
+<%! daoProductoMoneda objProMon = new daoProductoMoneda(); %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,181 +16,66 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | Crea e-Commerce JAVA EE con pagos Online Paypal y Payu</title>
-    <%@include file="../WEB-INF/1 css.jsp" %> <%-- <%@include file="1 css.jsp" %> --%>
+    <%@include file="1 css.jsp" %>
 </head><!--/head-->
 
 <body>
-        <%@include file="../WEB-INF/2 header.jsp" %>
-	
-        <%@include file="../WEB-INF/3 slider.jsp" %>
-        
-        <%@include file="../WEB-INF/4 confianza.jsp" %>
-	
+        <%@include file="2 header.jsp" %>	
+        <%@include file="3 slider.jsp" %>        
+        <%@include file="4 confianza.jsp" %>        
         <section>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">					
-                                        <%-- <%! daoCategoria objCat = new daoCategoria(); %> --%>
-                                        <%@include file="../WEB-INF/5 barraLateral.jsp" %>                                        
+				<div class="col-sm-3">					                                        
+                                        <%@include file="5 barraLateral.jsp" %>                                        
 				</div>
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Productos destacados</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product1.jpg" alt="" />
-											<h2>$56</h2>
-											<p>Blusa Polo color negro</p>
-											<span class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</span>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Blusa Polo color negro</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-											</div>
-										</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></a></li>
-										<li><a href="#"><i class="fa fa-check-circle"></i>Disponible</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product2.jpg" alt="" />
-										<h2 class="gris">$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<span  class="btn btn-default add-to-cart disabled"><i class="fa fa-shopping-cart"></i>Artículo Agotado</span>
-									</div>
-									<div class="product-overlay grisfondo">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-                                                                                        <a href=""  class="btn btn-default add-to-cart disabled"><i class="fa fa-shopping-cart"></i>Artículo Agotado</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="" class="nodisponible"><i class="fa fa-star"></i><i class="fa fa-star"></i></a></li>
-										<li><a href="" class="nodisponible"><i class="fa fa-lock"></i>Agotado</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product3.jpg" alt="" />
-                                                                                <h2>$56 <strike class="gris">$70</strike></h2>
-										<p>Easy Polo Black Edition</p>
-										<span class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</span>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56 <strike>$70</strike></h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-										</div>
-									</div>
-                                                                    <img src="images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-star"></i><i class="fa fa-star"></i></a></li>
-										<li><a href="#"><i class="fa fa-check-circle"></i>Disponible</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product4.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<span class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</span>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-										</div>
-									</div>
-									<img src="images/home/new.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-star"></i><i class="fa fa-star"></i></a></li>
-										<li><a href="#"><i class="fa fa-check-circle"></i>Disponible</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product5.jpg" alt="" />
-										<h2>$56 <strike class="gris">$70</strike></h2>
-										<p>Easy Polo Black Edition</p>
-										<span class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</span>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56 <strike>$70</strike></h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-										</div>
-									</div>
-									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-star"></i><i class="fa fa-star"></i></a></li>
-										<li><a href="#"><i class="fa fa-check-circle"></i>Disponible</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product6.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href=""><i class="fa fa-star"></i><i class="fa fa-star"></i></a></li>
-										<li><a href="#"><i class="fa fa-check-circle"></i>Disponible</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
+                                                <%! String tipoMoneda; %>
+                                                <% String tipoMoneda = session.getAttribute("tipoMoneda").toString(); %>
+                                                <c:forEach var="p" items="<%= objProMon.cargarListProducto(tipoMoneda) %>">
+                                                        <div class="col-sm-4">
+                                                                <div class="product-image-wrapper">
+                                                                        <div class="single-products">
+                                                                                <div class="productinfo text-center">
+                                                                                        <img src="foto/${ p.getImg() }" alt="" />
+                                                                                        <h2 <c:if test="${ p.getSto() == 0 }"> class="gris" </c:if>><%= session.getAttribute("tipoMoneda") %> ${ p.getPre() }</h2>
+                                                                                        <p>${ p.getNom() }</p>
+                                                                                        <span class="btn btn-default add-to-cart <c:if test="${ p.getSto() == 0 }"> disabled </c:if>"><i class="fa fa-shopping-cart"></i>Agregar al carrito</span>
+                                                                                </div>
+                                                                                <div class="product-overlay <c:if test="${ p.getSto() == 0 }"> grisfondo </c:if>">
+                                                                                        <div class="overlay-content">
+                                                                                                <h2><%= session.getAttribute("tipoMoneda") %>  ${ p.getPreNue() }</h2>
+                                                                                                <p>${ p.getNom() }</p>
+                                                                                                <a href="#" class="btn btn-default add-to-cart <c:if test="${ p.getSto() == 0 }"> gris disabled </c:if>"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <c:if test="${ p.getNue() == 1 }">
+                                                                                    <img src="images/home/new.png" class="new" alt="producto"></img>
+                                                                                </c:if>
+                                                                        </div>
+                                                                        <div class="choose">
+                                                                                <ul class="nav nav-pills nav-justified">
+                                                                                        <li><a href=""><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></a></li>
+                                                                                        <li>
+                                                                                            <a href="" <c:if test="${ p.getSto() == 0 }"> class="gris" </c:if>>
+                                                                                            <c:choose>
+                                                                                                <c:when test="${ p.getSto() > 0 }">
+                                                                                                    <i class="fa fa-check-circle"></i>(<c:out value="${ p.getSto() }"></c:out>) Disponible
+                                                                                                </c:when>  
+                                                                                                <c:otherwise>
+                                                                                                    <i class="fa fa-lock"></i>(<c:out value="${ p.getSto() }"></c:out>) Agotado
+                                                                                                </c:otherwise>
+                                                                                            </c:choose>                                                                                                        
+                                                                                            </a>
+                                                                                        </li>
+                                                                                </ul>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </c:forEach>
 					</div><!--features_items-->
 					
 					<div class="category-tab"><!--category-tab-->
@@ -579,10 +466,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
-			
-        <%@include file="../WEB-INF/6 footer.jsp" %>
-  
-        <%@include file="../WEB-INF/7 js.jsp" %>
+	</section>	                                
+        <%@include file="6 footer.jsp" %>  
+        
+        <%@include file="7 js.jsp" %>
 </body>
 </html>

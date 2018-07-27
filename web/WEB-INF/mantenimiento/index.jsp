@@ -7,8 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dao.daoMarca"%>
 <%@page import="modelos_JavaBeans.marca"%>
+<%! daoMarca objMar = new daoMarca(); %>
 <%@page import="dao.daoCategoria"%>
 <%@page import="modelos_JavaBeans.categoria"%>
+<%! daoCategoria objCat = new daoCategoria(); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,23 +19,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Mantenimiento de Productos | Crea e-Commerce JAVA EE con pagos Online Paypal y Payu</title>
-    <%@include file="../../WEB-INF/1 css.jsp" %> <%-- <%@include file="../1 css.jsp" %> --%>
+    <%@include file="../1 css.jsp" %> <%-- <%@include file="../1 css.jsp" %> --%>
 </head><!--/head-->
 
 <body>
-        <%@include file="../../WEB-INF/2 header.jsp" %>
-	
-        <%-- <%@include file="../../WEB-INF/3 slider.jsp" %> --%>
-        
-        <%-- <%@include file="../../WEB-INF/4 confianza.jsp" %> --%>
-	
+        <%@include file="../2 header.jsp" %>
+        <%-- <%@include file="../3 slider.jsp" %> --%>
+        <%-- <%@include file="../4 confianza.jsp" %> --%>
         <section>
-                <!--
+                <%--
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">					
-                                        <%-- <%! daoCategoria objCat = new daoCategoria(); %> --%>
-                                        <%-- <%@include file="../../WEB-INF/5 barraLateral.jsp" %> --%>
+				<div class="col-sm-3">
+                                        <%@include file="../5 barraLateral.jsp" %>
 				</div>
                 
                                 <div class="col-sm-9 padding-right">
@@ -41,7 +39,7 @@
                                 </div>
 			</div>
 		</div>
-                -->                                
+                --%>                                
                 
                 <div class="container">
                     <div class="row justify-content-center mt-5 pt-5">
@@ -51,14 +49,14 @@
                                     <a href="#tab1" class="nav-link active" data-toggle="tab">Matenimiento</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#tab2" class="nav-link" data-toggle="tab">Otras monedas</a>
+                                    <a href="#tab2" class="nav-link" data-toggle="tab">Buscar</a>
                                 </li>					
                             </ul>
                                                         
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab1" role="tabpanel">                                                                       
                                     <h1 class="display-4">Productos</h1>
-                                    <!-- <hr class="bg-info"> -->
+                                    <%-- <hr class="bg-info"> --%>
                                     <p class="pb-0 mb-0">Formulario para el mantenimiento de productos.</p>
                                     <p class="text-danger small pt-0 mt-0">*Todos los campos son obligatorios</p>                            
                                     ${ mensajeExito }
@@ -66,7 +64,7 @@
                                     ${ insertProductoMoneda_SQLException }
                                     ${ mensajeError2 }
                                     ${ Datos }                                    
-                                    <form action="controladorProducto" method="post" enctype="multipart/form-data"> <!-- Vamos a redireccionar a un servlet llamado controlProducto.java vamos a pasar como parametro una variable llamada moneda -->
+                                    <form action="controladorProducto" method="post" enctype="multipart/form-data"> <%-- Vamos a redireccionar a un servlet llamado controlProducto.java vamos a pasar como parametro una variable llamada moneda --%>
                                         <div class="row form-group">
                                             <label for="nombre" class="col-form-label col-md-4">Nombre:</label>
                                             <div class="col-md-7">                                        
@@ -143,8 +141,7 @@
                                                 <input type="number" name="cantidad" value="1" id="cantidad" class="form-control" min="1" required>
                                             </div>
                                             <p class="text-danger small pt-0 mt-0">*</p>
-                                        </div>
-                                        <%! daoMarca objMar = new daoMarca(); %>
+                                        </div>                                        
                                         <div class="row form-group">
                                             <label for="marca" class="col-form-label col-md-4">Marca:</label>                               
                                             <div class="col-md-5">
@@ -154,18 +151,17 @@
                                                         <option value="<%= m.getIdmar()%>"><%= m.getNom() %></option>
                                                     <% } %>
                                                     
-                                                    <!--
+                                                    <%--
                                                     <select name="marca" id="marca" class="form-control" required>
                                                         option value="" selected>Seleccionar marca</option>
 							<option value="1">Opción 1</option>
 							<option value="2">Opción 2</option>
 							<option value="3">Opción 3</option>
                                                     </select>
-                                                    -->
+                                                    --%>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <%! daoCategoria objCat = new daoCategoria(); %>
+                                        </div>                                        
                                         <div class="row form-group">                                            
                                             <label for="categoria" class="col-form-label col-md-4">Categoría:</label>                               
                                             <div class="col-md-5">
@@ -175,14 +171,14 @@
                                                         <option value="<%= c.getIdcat() %>"><%= c.getNom() %></option>
                                                     <% } %>
                                                     
-                                                    <!--
+                                                    <%--
                                                     <select name="categoria" id="categoria" class="form-control" required>
                                                         option value="" selected>Seleccionar categoría</option>
 							<option value="1">Opción 1</option>
 							<option value="2">Opción 2</option>
 							<option value="3">Opción 3</option>
                                                     </select>
-                                                    -->
+                                                    --%>
                                                 </select>
                                             </div>
                                         </div>
@@ -233,9 +229,8 @@
                     </div><!-- .row -->
                 </div><!-- .container -->
 	</section>
-			
-        <%@include file="../../WEB-INF/6 footer.jsp" %>
-  
-        <%@include file="../../WEB-INF/7 js.jsp" %>
+        <%@include file="../6 footer.jsp" %>
+        
+        <%@include file="../7 js.jsp" %>
 </body>
 </html>

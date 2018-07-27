@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+							<a href="index.jsp"><img src="images/home/logo.png" alt="" /></a>
 						</div>
 
 						<div class="btn-group pull-right">
@@ -54,7 +54,7 @@
 								<li><a href="#"><i class="fa fa-user"></i> Mi cuenta</a></li>
 								<li><a href="#"><i class="fa fa-shopping-cart"></i> Ver carrito</a></li>
 								<li><a href="#"><i class="fa fa-crosshairs"></i> Finalizar compra</a></li>
-								<li><a href="#"><i class="fa fa-lock"></i> Acceder</a></li>
+								<li><a href="mantenimiento"><i class="fa fa-lock"></i> Acceder</a></li>
 							</ul>
 						</div>
 					</div>
@@ -77,7 +77,7 @@
                                             
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#" class="active">Inicio</a></li>
+								<li><a href="home" class="active">Home</a></li>
                                                                 <li><a href="#">Todos los Productos</a></li>
                                                                 <li><a href="#">Ropa para Niños</a></li> 
                                                                 <li><a href="#">Blog</a></li>

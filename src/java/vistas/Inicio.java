@@ -48,7 +48,7 @@ public class Inicio extends HttpServlet {
         if (thisIsNotThreadsafe == null) {
             thisIsNotThreadsafe = null;
             sesion.setAttribute("nombreMoneda", "$ Pesos Mexicanos");
-            sesion.setAttribute("tipoMoneda", "MXN");            
+            sesion.setAttribute("tipoMoneda", "MXN");
         } else {
             switch (thisIsNotThreadsafe) {
                 case "MXN":

@@ -105,30 +105,6 @@ public class daoCategoria {
             System.out.println("Error en Cargar");
         }
         return null;
-    }
-    
-    public categoria obtenerCategoriaSuperior(int i) {
-        return catSup.get(i);           
-    }    
-            
-    public int tamañoCategoriaSuperior() { 
-        return catSup.size();
-    }
-    
-    public categoria obtenerSubCategoria(int i) {
-        return SubCat.get(i);           
-    }    
-            
-    public int tamañoSubCategoria() { 
-        return SubCat.size();
-    }
-    
-    public categoria obtenerCategoria(int i) {
-        return cat.get(i);           
-    }    
-            
-    public int tamañoCategoria() { 
-        return cat.size();
-    }
+    }        
     
 }
