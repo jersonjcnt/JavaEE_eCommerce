@@ -45,7 +45,7 @@ public class controladorMoneda extends HttpServlet {
 //            out.println("</html>");
 //        }   
         thisIsNotThreadsafe  = request.getParameter("moneda");
-        response.sendRedirect("home"); // Redirigimos el servlet controladorMoneda.java a la url /home
+        response.sendRedirect("home");
     }   
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

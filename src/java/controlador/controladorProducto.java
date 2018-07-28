@@ -182,7 +182,7 @@ public class controladorProducto extends HttpServlet {
                 + nombreUSD + ", " + precioUSD + ", " + precioNuevoUSD + ", "
                 + nombreCOP + ", " + precioCOP + ", " + precioNuevoCOP + ", " 
                 + nombrePEN + ", " + precioPEN + ", " + precioNuevoPEN + "</div>");
-        request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response); // Cuando accedemos al servlet Mantenimiento.java a travez de la url /mantenimiento, lo que hace el servlet es redirigirnos a index.jsp que esta dentro de WEB-INF/mantenimiento y que no puede ser accedido
+        request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response);
     }
     
     private void recibirDatos(HttpServletRequest request) {

@@ -42,7 +42,7 @@ public class Mantenimiento extends HttpServlet {
 //            out.println("</body>");
 //            out.println("</html>");
 //        }
-        request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response); // Cuando accedemos al servlet Mantenimiento.java a travez de la url /mantenimiento, lo que hace el servlet es redirigirnos a index.jsp que esta dentro de WEB-INF/mantenimiento y que no puede ser accedido
+        request.getRequestDispatcher("WEB-INF/mantenimiento/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
