@@ -39,7 +39,7 @@
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="controladorMoneda?moneda=MXN" href="home?moneda=MXN">Peso Mexicanos (MXN)</a></li> <!-- Vamos a redireccionar a un servlet llamado controladorMoneda.java vamos a pasar como parametro una variable llamada moneda -->
+									<li><a href="controladorMoneda?moneda=MXN" href="home?moneda=MXN">Peso Mexicanos (MXN)</a></li>
 									<li><a href="controladorMoneda?moneda=COP" href="home?moneda=COP">Peso Colombianos (COP)</a></li>                                                                        
 									<li><a href="controladorMoneda?moneda=USD" href="home?moneda=USD">Dolar Estadounidenses (USD)</a></li>
 									<li><a href="controladorMoneda?moneda=PEN" href="home?moneda=PEN">Sol Peruanos (PEN)</a></li>

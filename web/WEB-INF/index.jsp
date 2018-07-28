@@ -5,12 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="dao.daoProducto_daoMoneda"%>
 <%@page import="modelos_JavaBeans.producto"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%! daoProducto_daoMoneda objProMon = new daoProducto_daoMoneda(); %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

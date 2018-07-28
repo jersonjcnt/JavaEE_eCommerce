@@ -64,7 +64,7 @@
                                     ${ insertProductoMoneda_SQLException }
                                     ${ mensajeError2 }
                                     ${ Datos }                                    
-                                    <form action="controladorProducto" method="post" enctype="multipart/form-data"> <%-- Vamos a redireccionar a un servlet llamado controlProducto.java vamos a pasar como parametro una variable llamada moneda --%>
+                                    <form action="controladorProducto" method="post" enctype="multipart/form-data"> <%-- Vamos a redireccionar a un servlet llamado controladorProducto.java --%>
                                         <div class="row form-group">
                                             <label for="nombre" class="col-form-label col-md-4">Nombre:</label>
                                             <div class="col-md-7">                                        
