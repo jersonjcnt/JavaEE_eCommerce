@@ -44,38 +44,44 @@ public class Inicio extends HttpServlet {
 //            out.println("</body>");
 //            out.println("</html>");
 //        }
-        HttpSession sesion = request.getSession();        
+        HttpSession session = request.getSession();        
         if (thisIsNotThreadsafe == null) {
             thisIsNotThreadsafe = null;
-            sesion.setAttribute("nombreMoneda", "$ Pesos Mexicanos");
-            sesion.setAttribute("tipoMoneda", "MXN");
+            session.setAttribute("nombreMoneda", "Pesos Mexicanos");
+            session.setAttribute("tipoMoneda", "MXN");
         } else {
             switch (thisIsNotThreadsafe) {
                 case "MXN":
                     thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "$ Pesos Mexicanos");
-                    sesion.setAttribute("tipoMoneda", "MXN");                    
+                    session.setAttribute("nombreMoneda", "Pesos Mexicanos");
+                    session.setAttribute("tipoMoneda", "MXN");                    
                 break;
 
                 case "COP":
                     thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "Pesos Colombianos");
-                    sesion.setAttribute("tipoMoneda", "COP");                    
+                    session.setAttribute("nombreMoneda", "Pesos Colombianos");
+                    session.setAttribute("tipoMoneda", "COP");                     
                 break;
 
                 case "USD":
                     thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "Dolar Estadounidense");
-                    sesion.setAttribute("tipoMoneda", "USD");                    
+                    session.setAttribute("nombreMoneda", "Dolar Estadounidense");
+                    session.setAttribute("tipoMoneda", "USD");                    
                 break;
 
-                case "PEN":
+                case "PEN": 
                     thisIsNotThreadsafe = null;
-                    sesion.setAttribute("nombreMoneda", "Sol Peruano");
-                    sesion.setAttribute("tipoMoneda", "PEN");                    
+                    session.setAttribute("nombreMoneda", "Sol Peruano");
+                    session.setAttribute("tipoMoneda", "PEN");                    
                 break;                                                                
             }
-        }
+        }        
+        String categoria = request.getParameter("categoria");
+        if (categoria == null) {
+            session.setAttribute("categoria", "null");
+        } else {
+            session.setAttribute("categoria", categoria);
+        }        
         request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response); // Cuando accedemos al servlet Inicio.java a travez de la url /home, lo que hace el servlet es redirigirnos a index.jsp que esta dentro de WEB-INF y que no puede ser accedido
     }
 

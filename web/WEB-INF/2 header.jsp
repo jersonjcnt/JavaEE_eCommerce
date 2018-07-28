@@ -35,7 +35,7 @@
 						<div class="btn-group pull-right">
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                                                        ${ sessionScope.nombreMoneda } (${ sessionScope.tipoMoneda })
+                                                                        ${ nombreMoneda } (${ tipoMoneda })
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">

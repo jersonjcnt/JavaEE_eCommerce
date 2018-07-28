@@ -5,9 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="dao.daoProductoMoneda"%>
-<%! daoProductoMoneda objProMon = new daoProductoMoneda(); %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="dao.daoProducto_daoMoneda"%>
+<%@page import="modelos_JavaBeans.producto"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%! daoProducto_daoMoneda objProMon = new daoProducto_daoMoneda(); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +20,7 @@
     <meta name="author" content="">
     <title>Home | Crea e-Commerce JAVA EE con pagos Online Paypal y Payu</title>
     <%@include file="1 css.jsp" %>
+<a href="index.jsp"></a>
 </head><!--/head-->
 
 <body>
@@ -33,9 +37,23 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Productos destacados</h2>
+                                                
+                                                <%-- session proviene del servlet Inicio.java --%>
                                                 <%! String tipoMoneda; %>
-                                                <% String tipoMoneda = session.getAttribute("tipoMoneda").toString(); %>
-                                                <c:forEach var="p" items="<%= objProMon.cargarListProducto(tipoMoneda) %>">
+                                                <% tipoMoneda = session.getAttribute("tipoMoneda").toString(); %>
+                                                <%! String categoria; %>
+                                                <% categoria = session.getAttribute("categoria").toString(); %>
+                                                                                                
+                                                <%! List<producto> pro = new ArrayList<producto>(); %>
+                                                <%  
+                                                    if (categoria.equalsIgnoreCase("null")) {
+                                                        pro = objProMon.cargarListProducto(tipoMoneda);
+                                                    } else {
+                                                        pro = objProMon.cargarListProductoPorCategoria(tipoMoneda, categoria);
+                                                    }
+                                                %>
+                                                                                                
+                                                <c:forEach var="p" items="<%= pro %>">
                                                         <div class="col-sm-4">
                                                                 <div class="product-image-wrapper">
                                                                         <div class="single-products">

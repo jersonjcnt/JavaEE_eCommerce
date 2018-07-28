@@ -9,17 +9,17 @@ import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-public class daoProductoMoneda {
+public class daoProducto_daoMoneda {
     
     private Connection connection = new clsConexion().getConnection();
     private List<producto> pro;
     public static String insertProductoMoneda_SQLException;
     
-    public List<producto> cargarListProducto(String nom) {
+    public List<producto> cargarListProducto(String mon) {
         pro = new ArrayList<producto>();
         try {
             CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTPRODUCTO(?)}");
-            st.setString(1,nom);
+            st.setString(1,mon);
             ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(1);
             
             while (rs.next()) {
@@ -27,7 +27,44 @@ public class daoProductoMoneda {
                 objPro.setIdPro(rs.getInt("IDPRO"));
                 objPro.setNom(rs.getString("NOM_PRO"));
                 objPro.setDes(rs.getString("DES_PRO"));                
-                if (nom.equalsIgnoreCase("MXN")) {
+                if (mon.equalsIgnoreCase("MXN")) {
+                    objPro.setPre(rs.getDouble("p.PRE_PRO"));
+                    objPro.setPreNue(rs.getDouble("p.PRENUE_PRO"));
+                } else {
+                    objPro.setPre(rs.getDouble("mon.PRE_PRO"));
+                    objPro.setPreNue(rs.getDouble("mon.PRENUE_PRO"));
+                }                                
+                objPro.setSto(rs.getInt("STO_PRO"));
+                objPro.setIdMar(rs.getString("NOM_MAR"));
+                objPro.setIdCat(rs.getString("NOM_CAT"));
+                objPro.setNue(rs.getInt("NUE_PRO"));
+                objPro.setRec(rs.getInt("REC_PRO"));
+                objPro.setEst(rs.getInt("EST_PRO"));
+                objPro.setImg(rs.getString("IMG_PRO"));
+                pro.add(objPro); //Los datos se almacenan en el List
+            }
+            return pro; //Retorna el List
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("Error en Cargar");
+        }
+        return null;
+    }
+    
+    public List<producto> cargarListProductoPorCategoria(String mon,String cat) {
+        pro = new ArrayList<producto>();
+        try {
+            CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTPRODUCTOPORCATEGORIA(?,?)}");
+            st.setString(1,mon);
+            st.setString(2,cat);           
+            ResultSet rs = st.executeQuery(); //ResultSet rs = (ResultSet) st.getObject(1);
+            
+            while (rs.next()) {
+                producto objPro = new producto(); //Se crea el objeto de la clase empleado
+                objPro.setIdPro(rs.getInt("IDPRO"));
+                objPro.setNom(rs.getString("NOM_PRO"));
+                objPro.setDes(rs.getString("DES_PRO"));                
+                if (mon.equalsIgnoreCase("MXN")) {
                     objPro.setPre(rs.getDouble("p.PRE_PRO"));
                     objPro.setPreNue(rs.getDouble("p.PRENUE_PRO"));
                 } else {

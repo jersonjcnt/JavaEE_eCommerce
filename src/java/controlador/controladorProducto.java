@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package controlador;
-import dao.daoProductoMoneda;
+import dao.daoProducto_daoMoneda;
 import modelos_JavaBeans.producto;
 import modelos_JavaBeans.moneda;
-import static dao.daoProductoMoneda.insertProductoMoneda_SQLException;
+import static dao.daoProducto_daoMoneda.insertProductoMoneda_SQLException;
 
 import java.io.IOException;
 //import java.io.PrintWriter;
@@ -88,13 +88,7 @@ public class controladorProducto extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);    
 
-        recibirDatos(request);
-        
-//        Esto es asi por que en el momento de cargar la lista de datos de la tabla producto, cargamos el nombre de la categoria y no su id
-//        public String getIdCategoria(){        
-//            return String.valueOf(cboCategoria.getSelectedIndex() + 1);
-//        }
-        
+        recibirDatos(request);        
         String nombre = request.getAttribute("nombre").toString();
         String descripcion = request.getAttribute("descripcion").toString();
         Double precioMXN = Double.parseDouble(request.getAttribute("precio-mxn").toString());
@@ -102,6 +96,10 @@ public class controladorProducto extends HttpServlet {
         int stock = Integer.parseInt(request.getAttribute("cantidad").toString());
         String marca = request.getAttribute("marca").toString();
         String categoria = request.getAttribute("categoria").toString();
+//        Esto es asi por que en el momento de cargar la lista de datos de la tabla producto, cargamos el nombre de la categoria y no su id
+//        public String getIdCategoria(){        
+//            return String.valueOf(cboCategoria.getSelectedIndex() + 1);
+//        }
         int nuevo;
         int recomendado;
         int estado;
@@ -123,10 +121,11 @@ public class controladorProducto extends HttpServlet {
             System.out.println(e);
             estado = 0;
         }
-        // Si el dato obtenido del formulario mediante el método post es igual a "ON"
-        // Si es igual, retornamos un 1
-        // Si no es igual, retornamos un 0
-        String url = request.getAttribute("imagen").toString();        
+//         Si el dato obtenido del formulario mediante el método post es igual a "ON"
+//         Si es igual, retornamos un 1
+//         Si no es igual, retornamos un 0
+        String url = request.getAttribute("imagen").toString();
+        String accion = request.getAttribute("action").toString(); 
         
         String nombreUSD = "USD";
         Double precioUSD = Double.parseDouble(request.getAttribute("precio-usd").toString());
@@ -136,7 +135,7 @@ public class controladorProducto extends HttpServlet {
         Double precioNuevoCOP =  Double.parseDouble(request.getAttribute("precio-nuevo-cop").toString());
         String nombrePEN = "PEN";
         Double precioPEN = Double.parseDouble(request.getAttribute("precio-pen").toString());
-        Double precioNuevoPEN =  Double.parseDouble(request.getAttribute("precio-nuevo-pen").toString());                        
+        Double precioNuevoPEN =  Double.parseDouble(request.getAttribute("precio-nuevo-pen").toString());                                        
         
         producto objPro = new producto();
         objPro.setNom(nombre);
@@ -164,11 +163,9 @@ public class controladorProducto extends HttpServlet {
         moneda objMon3 = new moneda();
         objMon3.setNom(nombrePEN);      
         objMon3.setPre(precioPEN);
-        objMon3.setPreNue(precioNuevoPEN);
-                        
-        String accion = request.getAttribute("action").toString();                
+        objMon3.setPreNue(precioNuevoPEN);                                               
         
-        daoProductoMoneda objProMon = new daoProductoMoneda();        
+        daoProducto_daoMoneda objProMon = new daoProducto_daoMoneda();        
         if (accion.equalsIgnoreCase("Enviar")) {
             if (objProMon.insertProductoMoneda(objPro, objMon, objMon2, objMon3) == true) {
                 request.setAttribute("mensajeExito", "<div class=\"alert alert-success\" id=\"mensajeExito\">Producto agregado con éxito</div>");                
