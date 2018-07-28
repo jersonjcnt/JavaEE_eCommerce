@@ -46,7 +46,7 @@
                         <div class="col-md-7">                                                        
                             <ul class="nav nav-tabs">
                                 <li class="nav-item active">
-                                    <a href="#tab1" class="nav-link active" data-toggle="tab">Matenimiento</a>
+                                    <a href="#tab1" class="nav-link" data-toggle="tab">Matenimiento</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#tab2" class="nav-link" data-toggle="tab">Buscar</a>
