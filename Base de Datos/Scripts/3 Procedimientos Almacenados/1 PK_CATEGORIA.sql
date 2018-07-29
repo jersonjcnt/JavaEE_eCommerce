@@ -4,7 +4,7 @@ create or replace procedure usp_cargarListCategoria()
 begin
 	select   c.IDCAT,c.NOM_CAT,c.EST_CAT,c.CATSUP_CAT
 	from     categoria c
-    where	 c.EST_CAT = 1
+    where	 c.IDCAT != c.CATSUP_CAT and c.EST_CAT = 1
  	order by c.IDCAT;
 end; //
 DELIMITER &&

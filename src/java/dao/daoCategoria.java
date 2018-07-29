@@ -11,9 +11,31 @@ import java.sql.SQLException;
 public class daoCategoria {
 
     private Connection connection = new clsConexion().getConnection();
-    private List<categoria> catSup;
-    private List<categoria> SubCat;
     private List<categoria> cat;
+    private List<categoria> catSup;
+    private List<categoria> SubCat;    
+    
+    public List<categoria> cargarListCategoria() {
+        cat = new ArrayList<categoria>();
+        try {
+            CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTCATEGORIA}");
+            ResultSet rs = st.executeQuery();
+            
+            while (rs.next()) {
+                categoria objCat = new categoria();
+                objCat.setIdcat(rs.getInt("IDCAT"));
+                objCat.setNom(rs.getString("NOM_CAT"));
+                objCat.setEst(rs.getInt("EST_CAT"));
+                objCat.setCatsup(rs.getInt("CATSUP_CAT"));
+                cat.add(objCat);
+            }
+            return cat;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("Error en Cargar");
+        }
+        return null;
+    }
     
     public List<categoria> cargarListCategoriaSuperior() {
         catSup = new ArrayList<categoria>();
@@ -83,28 +105,6 @@ public class daoCategoria {
             System.out.println("Error en Obtener");
         }              
         return 0;
-    }
-    
-    public List<categoria> cargarListCategoria() {
-        cat = new ArrayList<categoria>();
-        try {
-            CallableStatement st = connection.prepareCall("{CALL USP_CARGARLISTCATEGORIA}");
-            ResultSet rs = st.executeQuery();
-            
-            while (rs.next()) {
-                categoria objCat = new categoria();
-                objCat.setIdcat(rs.getInt("IDCAT"));
-                objCat.setNom(rs.getString("NOM_CAT"));
-                objCat.setEst(rs.getInt("EST_CAT"));
-                objCat.setCatsup(rs.getInt("CATSUP_CAT"));
-                cat.add(objCat);
-            }
-            return cat;
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            System.out.println("Error en Cargar");
-        }
-        return null;
-    }        
+    }                
     
 }
